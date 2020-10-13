@@ -1,4 +1,3 @@
-import {Vaccine} from './vaccine';
 
 export interface Account {
   id: number;
@@ -8,6 +7,6 @@ export interface Account {
   parentIdCard: string;
   address: string;
   phoneNumber: string;
-  vaccine: Vaccine;
+  // vaccine: Vaccine;
   injectionDate: Date;
 }
