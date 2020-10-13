@@ -1,16 +1,305 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>C0320G1VaccineFrontend2</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 </head>
+
 <body>
   <app-root></app-root>
+  <script type='text/javascript'
+    src='https://vnvc.vn/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?rev=5.1.6'></script>
+  <script type='text/javascript'
+    src='https://vnvc.vn/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?rev=5.1.6'></script>
+  <script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css");
+    var htmlDivCss = "";
+    if (htmlDiv) {
+      htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+    } else {
+      var htmlDiv = document.createElement("div");
+      htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+      document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+    }
+  </script>
+  <script type="text/javascript">
+    /******************************************
+     -    PREPARE PLACEHOLDER FOR SLIDER    -
+     ******************************************/
+
+    var setREVStartSize = function () {
+      try {
+        var e = new Object, i = jQuery(window).width(), t = 9999, r = 0, n = 0, l = 0, f = 0, s = 0, h = 0;
+        e.c = jQuery('#rev_slider_1_1');
+        e.gridwidth = [1920];
+        e.gridheight = [910];
+
+        e.sliderLayout = "fullwidth";
+        if (e.responsiveLevels && (jQuery.each(e.responsiveLevels, function (e, f) {
+          f > i && (t = r = f, l = e), i > f && f > r && (r = f, n = e)
+        }), t > r && (l = n)), f = e.gridheight[l] || e.gridheight[0] || e.gridheight, s = e.gridwidth[l] || e.gridwidth[0] || e.gridwidth, h = i / s, h = h > 1 ? 1 : h, f = Math.round(h * f), "fullscreen" == e.sliderLayout) {
+          var u = (e.c.width(), jQuery(window).height());
+          if (void 0 != e.fullScreenOffsetContainer) {
+            var c = e.fullScreenOffsetContainer.split(",");
+            if (c) jQuery.each(c, function (e, i) {
+              u = jQuery(i).length > 0 ? u - jQuery(i).outerHeight(!0) : u
+            }), e.fullScreenOffset.split("%").length > 1 && void 0 != e.fullScreenOffset && e.fullScreenOffset.length > 0 ? u -= jQuery(window).height() * parseInt(e.fullScreenOffset, 0) / 100 : void 0 != e.fullScreenOffset && e.fullScreenOffset.length > 0 && (u -= parseInt(e.fullScreenOffset, 0))
+          }
+          f = u
+        } else void 0 != e.minHeight && f < e.minHeight && (f = e.minHeight);
+        e.c.closest(".rev_slider_wrapper").css({ height: f })
+
+      } catch (d) {
+        console.log("Failure at Presize of Slider:" + d)
+      }
+    };
+
+
+    setREVStartSize();
+
+    function revslider_showDoubleJqueryError(sliderID) {
+      var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
+      errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
+      errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
+      errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
+      errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
+      jQuery(sliderID).show().html(errorMessage);
+    }
+
+    var tpj = jQuery;
+
+    var revapi1;
+    tpj(document).ready(function () {
+      if (tpj("#rev_slider_1_1").revolution == undefined) {
+        revslider_showDoubleJqueryError("#rev_slider_1_1");
+      } else {
+        revapi1 = tpj("#rev_slider_1_1").show().revolution({
+          sliderType: "standard",
+          jsFileLocation: "//vnvc.vn/wp-content/plugins/revslider/public/assets/js/",
+          sliderLayout: "fullwidth",
+          dottedOverlay: "none",
+          delay: 7500,
+          navigation: {
+            keyboardNavigation: "off",
+            keyboard_direction: "horizontal",
+            mouseScrollNavigation: "off",
+            onHoverStop: "off",
+            arrows: {
+              style: "hesperiden",
+              enable: true,
+              hide_onmobile: false,
+              hide_onleave: true,
+              hide_delay: 200,
+              hide_delay_mobile: 1200,
+              tmp: '',
+              left: {
+                h_align: "left",
+                v_align: "center",
+                h_offset: 20,
+                v_offset: 0
+              },
+              right: {
+                h_align: "right",
+                v_align: "center",
+                h_offset: 20,
+                v_offset: 0
+              }
+            }
+          },
+          visibilityLevels: [1240, 1024, 778, 480],
+          gridwidth: 1920,
+          gridheight: 910,
+          lazyType: "none",
+          shadow: 0,
+          spinner: "off",
+          stopLoop: "off",
+          stopAfterLoops: -1,
+          stopAtSlide: -1,
+          shuffle: "off",
+          autoHeight: "off",
+          disableProgressBar: "on",
+          hideThumbsOnMobile: "off",
+          hideSliderAtLimit: 0,
+          hideCaptionAtLimit: 0,
+          hideAllCaptionAtLilmit: 0,
+          startWithSlide: 0,
+          debugMode: false,
+          fallbacks: {
+            simplifyAll: "off",
+            nextSlideOnWindowFocus: "off",
+            disableFocusListener: false,
+          }
+        });
+      }
+    });	/*ready*/
+  </script>
+  <link rel='stylesheet' id='owl_carousel-css' href='https://vnvc.vn/wp-content/themes/wg/css/owl.carousel.css?ver=1'
+    type='text/css' media='all' />
+  <script type='text/javascript'>
+    /* <![CDATA[ */
+    var wpcf7 = {
+      "apiSettings": {
+        "root": "https:\/\/vnvc.vn\/wp-json\/contact-form-7\/v1",
+        "namespace": "contact-form-7\/v1"
+      },
+      "recaptcha": { "messages": { "empty": "H\u00e3y x\u00e1c nh\u1eadn r\u1eb1ng b\u1ea1n kh\u00f4ng ph\u1ea3i l\u00e0 robot." } }
+    };
+        /* ]]> */
+  </script>
+  <script type='text/javascript'
+    src='https://vnvc.vn/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.9.2'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+  <script type='text/javascript'>
+    jQuery(document).ready(function (jQuery) {
+      jQuery.datepicker.setDefaults({
+        "closeText": "\u0110\u00f3ng",
+        "currentText": "H\u00f4m nay",
+        "monthNames": ["Th\u00e1ng M\u1ed9t", "Th\u00e1ng Hai", "Th\u00e1ng Ba", "Th\u00e1ng T\u01b0", "Th\u00e1ng N\u0103m", "Th\u00e1ng S\u00e1u", "Th\u00e1ng B\u1ea3y", "Th\u00e1ng T\u00e1m", "Th\u00e1ng Ch\u00edn", "Th\u00e1ng M\u01b0\u1eddi", "Th\u00e1ng M\u01b0\u1eddi M\u1ed9t", "Th\u00e1ng M\u01b0\u1eddi Hai"],
+        "monthNamesShort": ["Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"],
+        "nextText": "Ti\u1ebfp theo",
+        "prevText": "Quay v\u1ec1",
+        "dayNames": ["Ch\u1ee7 Nh\u1eadt", "Th\u1ee9 Hai", "Th\u1ee9 Ba", "Th\u1ee9 T\u01b0", "Th\u1ee9 N\u0103m", "Th\u1ee9 S\u00e1u", "Th\u1ee9 B\u1ea3y"],
+        "dayNamesShort": ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+        "dayNamesMin": ["C", "H", "B", "T", "N", "S", "B"],
+        "dateFormat": "d MM, yy",
+        "firstDay": 1,
+        "isRTL": false
+      });
+    });
+  </script>
+  <script type='text/javascript'
+    src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-vi.min.js?ver=1.11.4'></script>
+  <script type='text/javascript'
+    src='https://vnvc.vn/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.js?ver=4.7.18'></script>
+  <script type='text/javascript'
+    src='https://vnvc.vn/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/i18n/jquery-ui-timepicker-vi.js?ver=4.7.18'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/button.min.js?ver=1.11.4'></script>
+  <script type='text/javascript'
+    src='https://vnvc.vn/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-sliderAccess.js?ver=4.7.18'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+  <script type='text/javascript'>
+    /* <![CDATA[ */
+    var pum_vars = {
+      "version": "1.7.30",
+      "ajaxurl": "https:\/\/vnvc.vn\/wp-admin\/admin-ajax.php",
+      "restapi": "https:\/\/vnvc.vn\/wp-json\/pum\/v1",
+      "rest_nonce": null,
+      "default_theme": "3758",
+      "debug_mode": "",
+      "disable_tracking": "",
+      "home_url": "\/",
+      "message_position": "top",
+      "core_sub_forms_enabled": "1",
+      "popups": []
+    };
+    var ajaxurl = "https:\/\/vnvc.vn\/wp-admin\/admin-ajax.php";
+    var pum_debug_vars = {
+      "debug_mode_enabled": "Popup Maker: Debug Mode Enabled",
+      "debug_started_at": "Debug started at:",
+      "debug_more_info": "For more information on how to use this information visit https:\/\/docs.wppopupmaker.com\/?utm_medium=js-debug-info&utm_campaign=ContextualHelp&utm_source=browser-console&utm_content=more-info",
+      "global_info": "Global Information",
+      "localized_vars": "Localized variables",
+      "popups_initializing": "Popups Initializing",
+      "popups_initialized": "Popups Initialized",
+      "single_popup_label": "Popup: #",
+      "theme_id": "Theme ID: ",
+      "label_method_call": "Method Call:",
+      "label_method_args": "Method Arguments:",
+      "label_popup_settings": "Settings",
+      "label_triggers": "Triggers",
+      "label_cookies": "Cookies",
+      "label_delay": "Delay:",
+      "label_conditions": "Conditions",
+      "label_cookie": "Cookie:",
+      "label_settings": "Settings:",
+      "label_selector": "Selector:",
+      "label_mobile_disabled": "Mobile Disabled:",
+      "label_tablet_disabled": "Tablet Disabled:",
+      "label_event": "Event: %s",
+      "triggers": { "click_open": "Click Open", "auto_open": "Time Delay \/ Auto Open" },
+      "cookies": {
+        "on_popup_close": "On Popup Close",
+        "on_popup_open": "On Popup Open",
+        "pum_sub_form_success": "Subscription Form: Successful",
+        "pum_sub_form_already_subscribed": "Subscription Form: Already Subscribed",
+        "manual": "Manual JavaScript",
+        "cf7_form_success": "Contact Form 7 Success"
+      }
+    };
+    var pum_sub_vars = { "ajaxurl": "https:\/\/vnvc.vn\/wp-admin\/admin-ajax.php", "message_position": "top" };
+    var pum_popups = {
+      "pum-3764": {
+        "disable_on_mobile": false,
+        "disable_on_tablet": false,
+        "custom_height_auto": false,
+        "scrollable_content": false,
+        "position_from_trigger": false,
+        "position_fixed": true,
+        "overlay_disabled": false,
+        "stackable": false,
+        "disable_reposition": false,
+        "close_on_overlay_click": true,
+        "close_on_esc_press": true,
+        "close_on_f4_press": true,
+        "disable_form_reopen": false,
+        "disable_accessibility": false,
+        "triggers": [{ "type": "auto_open", "settings": { "cookie_name": "pum-3764", "delay": "500" } }],
+        "cookies": [{
+          "event": "on_popup_close",
+          "settings": { "name": "pum-3764", "key": "", "session": false, "time": "120 minutes", "path": true }
+        }],
+        "theme_id": "3761",
+        "size": "small",
+        "responsive_min_width": "0%",
+        "responsive_max_width": "100%",
+        "custom_width": "485px",
+        "custom_height": "270px",
+        "animation_type": "fade",
+        "animation_speed": "350",
+        "animation_origin": "center top",
+        "location": "center top",
+        "position_top": "150",
+        "position_bottom": "0",
+        "position_left": "0",
+        "position_right": "0",
+        "zindex": "1999999999",
+        "close_button_delay": "0",
+        "id": 3764,
+        "slug": "banner1"
+      }
+    };
+        /* ]]> */
+  </script>
+  <script type='text/javascript'
+    src='//vnvc.vn/wp-content/uploads/pum/pum-site-scripts.js?defer&#038;generated=1601552295&#038;ver=1.7.30'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-includes/js/wp-embed.min.js?ver=4.7.18'></script>
+  <script type='text/javascript' src='https://vnvc.vn/wp-content/themes/wg/js/owl_home.js?ver=1.2'></script>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+  <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+
+
 </body>
+
 </html>

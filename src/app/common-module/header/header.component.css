@@ -1,0 +1,19 @@
+.header{
+    position: fixed !important;
+}
+
+#header a img {
+    max-height: 80px;
+}
+
+.dangkythongtintiemchung_header {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.navbar-right{
+  margin-left: 60px;
+}
+
+
+
