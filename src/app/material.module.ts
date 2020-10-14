@@ -6,7 +6,7 @@ import {
     MatToolbarModule
   } from '@angular/material';
 
-  @NgModule({
+@NgModule({
     exports: [
       MatInputModule,
       MatButtonModule,
