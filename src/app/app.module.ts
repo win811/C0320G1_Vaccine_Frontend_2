@@ -12,6 +12,7 @@ import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.compon
 import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.component';
 import { LoginComponent } from './home/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModuleModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
 
   ],
   providers: [],
