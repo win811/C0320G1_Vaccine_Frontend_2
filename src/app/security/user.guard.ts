@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import { TokenStorageService } from '../share/services/TokenStorageService';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { TokenStorageService } from './../share/services/token-storage.service';
 
 
-@Injectable({providedIn: 'root'})
-@Injectable({providedIn: 'root'})
+
+@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' })
 export class UserGuard implements CanActivate {
   constructor(
     private router: Router,
@@ -21,7 +22,7 @@ export class UserGuard implements CanActivate {
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate(['/'], {queryParams: {returnUrl: state.url}});
+    this.router.navigate(['/'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 
