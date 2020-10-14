@@ -253,104 +253,116 @@
             <div class="row">
                 <h2 class="home_dv_title position_re col-xs-12">
                     <span>DANH MỤC VACXIN</span>
-                    <a href="https://vnvc.vn/chuyen-muc/thong-tin-san-pham-vac-xin/"
-                        class="position_ab view_all_dmvc hidden-xs"> Xem tất cả </a>
+                    <a routerLink="/table-vaccine"
+                        class="position_ab view_all_dmvc hidden-xs"> 
+                        Xem tất cả 
+                    </a>
                 </h2>
                 <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_1'><a href='https://vnvc.vn/infanrix-vac-xin-6-trong-1/'
-                            title='INFANRIX &#8211; Vắc xin 6 trong 1 (Phòng 6 bệnh: Ho gà, bạch hầu, uốn ván, bại liệt, viêm gan B và các bệnh do HIB)'><img
-                                width="235" height="156" src="https://vnvc.vn/wp-content/uploads/2017/04/INFANRIX-6.jpg"
-                                class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/INFANRIX-6.jpg 800w, https://vnvc.vn/wp-content/uploads/2017/04/INFANRIX-6-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/INFANRIX-6-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>INFANRIX &#8211; Vắc xin 6 trong 1 (Phòng 6 bệnh: Ho gà,
-                                bạch hầu, uốn ván, bại liệt, viêm gan B và các bệnh do HIB)
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[0])">
+                            <img width="235" height="156" [src]="vaccineList[0].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[0].category + ' - ' + vaccineList[0].name}}
                             </div>
-                        </a></div>
+                        </a>
+                    </div>
                 </div>
                 <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_2'><a href='https://vnvc.vn/pentaxim-vac-xin-5-trong-1/'
-                            title='PENTAXIM &#8211; Vắc xin 5 trong 1 (Phòng 5 bệnh: Ho gà, bạch hầu, uốn ván, bại liệt và các bệnh do HIB)'><img
-                                width="235" height="156" src="https://vnvc.vn/wp-content/uploads/2017/04/PENTAXIM-5.jpg"
-                                class="img-responsive wp-post-image" alt="Sản phẩm vắc xin 5 trong 1 Pentaxim"
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/PENTAXIM-5.jpg 800w, https://vnvc.vn/wp-content/uploads/2017/04/PENTAXIM-5-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/PENTAXIM-5-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>PENTAXIM &#8211; Vắc xin 5 trong 1 (Phòng 5 bệnh: Ho gà,
-                                bạch hầu, uốn ván, bại liệt và các bệnh do HIB)
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[1])">
+                            <img width="235" height="156" [src]="vaccineList[1].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[1].category + ' - ' + vaccineList[1].name}}
                             </div>
-                        </a></div>
+                        </a>
+                    </div>
                 </div>
                 <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_3'><a href='https://vnvc.vn/verorab-vac-xin-phong-dai/'
-                            title='VERORAB &#8211; Vắc xin phòng dại'><img width="235" height="156"
-                                src="https://vnvc.vn/wp-content/uploads/2017/04/VERORAB.jpg"
-                                class="img-responsive wp-post-image" alt="Vắc xin phòng dại Verorab"
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/VERORAB.jpg 800w, https://vnvc.vn/wp-content/uploads/2017/04/VERORAB-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/VERORAB-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>VERORAB &#8211; Vắc xin phòng dại</div>
-                        </a></div>
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[2])">
+                            <img width="235" height="156" [src]="vaccineList[2].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[2].category + ' - ' + vaccineList[2].name}}
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_4'><a href='https://vnvc.vn/gardasil-vac-xin-phong-ung-thu-co-tu-cung/'
-                            title='GARDASIL &#8211; Vắc xin phòng ung thư cổ tử cung'><img width="235" height="156"
-                                src="https://vnvc.vn/wp-content/uploads/2017/04/GARDASIL.jpg"
-                                class="img-responsive wp-post-image" alt="Vắc xin phòng ung thư cổ tử cung Gardasil"
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/GARDASIL.jpg 800w, https://vnvc.vn/wp-content/uploads/2017/04/GARDASIL-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/GARDASIL-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>GARDASIL &#8211; Vắc xin phòng ung thư cổ tử cung</div>
-                        </a></div>
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[3])">
+                            <img width="235" height="156" [src]="vaccineList[3].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[3].category + ' - ' + vaccineList[3].name}}
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class='col-sm-12 hidden-xs'></div>
 
                 <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_5'><a href='https://vnvc.vn/imojev-vac-xin-phong-viem-nao-nhat-ban-moi/'
-                            title='IMOJEV – Vắc xin phòng viêm não Nhật Bản thế hệ mới'><img width="235" height="156"
-                                src="https://vnvc.vn/wp-content/uploads/2019/07/Imojev-boom.png"
-                                class="img-responsive wp-post-image"
-                                alt="Vắc xin phòng viêm não Nhật Bản thế hệ mới (1)"
-                                srcset="https://vnvc.vn/wp-content/uploads/2019/07/Imojev-boom.png 800w, https://vnvc.vn/wp-content/uploads/2019/07/Imojev-boom-300x199.png 300w, https://vnvc.vn/wp-content/uploads/2019/07/Imojev-boom-768x510.png 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>IMOJEV – Vắc xin phòng viêm não Nhật Bản thế hệ mới</div>
-                        </a></div>
-                </div>
-                <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_6'><a href='https://vnvc.vn/engerix-b-vac-xin-phong-viem-gan-b/'
-                            title='ENGERIX B &#8211; Vắc xin phòng Viêm gan B'><img width="235" height="156"
-                                src="https://vnvc.vn/wp-content/uploads/2017/04/ENGERIX-B.jpg"
-                                class="img-responsive wp-post-image" alt=""
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/ENGERIX-B.jpg 913w, https://vnvc.vn/wp-content/uploads/2017/04/ENGERIX-B-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/ENGERIX-B-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>ENGERIX B &#8211; Vắc xin phòng Viêm gan B</div>
-                        </a></div>
-                </div>
-                <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_7'><a href='https://vnvc.vn/twinrix-vac-xin-phong-viem-gan-ab/'
-                            title='TWINRIX &#8211; Vắc xin phòng viêm gan A+B'><img width="235" height="156"
-                                src="https://vnvc.vn/wp-content/uploads/2017/04/TWINRIX.jpg"
-                                class="img-responsive wp-post-image" alt="Vắc xin phòng viêm gan A+B Twinrix"
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/TWINRIX.jpg 913w, https://vnvc.vn/wp-content/uploads/2017/04/TWINRIX-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/TWINRIX-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>TWINRIX &#8211; Vắc xin phòng viêm gan A+B</div>
-                        </a></div>
-                </div>
-                <div class='col-sm-3 col-xs-12'>
-                    <div class='vx_item item_8'><a
-                            href='https://vnvc.vn/va-mengoc-bc-vac-xin-phong-viem-mang-nao-nao-mo-cau-b-c/'
-                            title='VA-MENGOC-BC &#8211; Vắc xin phòng viêm màng não do não mô cầu B+C'><img width="235"
-                                height="156" src="https://vnvc.vn/wp-content/uploads/2017/04/VA-MENGOC-BC.jpg"
-                                class="img-responsive wp-post-image" alt="Vắc xin VA-MENGOC-BC"
-                                srcset="https://vnvc.vn/wp-content/uploads/2017/04/VA-MENGOC-BC.jpg 913w, https://vnvc.vn/wp-content/uploads/2017/04/VA-MENGOC-BC-300x199.jpg 300w, https://vnvc.vn/wp-content/uploads/2017/04/VA-MENGOC-BC-768x510.jpg 768w"
-                                sizes="(max-width: 235px) 100vw, 235px" />
-                            <div class='dv_title text-center'>VA-MENGOC-BC &#8211; Vắc xin phòng viêm màng não do não mô
-                                cầu B+C
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[4])">
+                            <img width="235" height="156" [src]="vaccineList[4].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[4].category + ' - ' + vaccineList[4].name}}
                             </div>
-                        </a></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='col-sm-3 col-xs-12'>
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[5])">
+                            <img width="235" height="156" [src]="vaccineList[5].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[5].category + ' - ' + vaccineList[5].name}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class='col-sm-3 col-xs-12'>
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[6])">
+                            <img width="235" height="156" [src]="vaccineList[6].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[6].category + ' - ' + vaccineList[6].name}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class='col-sm-3 col-xs-12'>
+                    <div class='vx_item item_1'>
+                        <a (click)="goToDetail(vaccineList[7])">
+                            <img width="235" height="156" [src]="vaccineList[7].image"
+                                 class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                 sizes="(max-width: 235px) 100vw, 235px" />
+                            <div class='dv_title text-center'>
+                                {{vaccineList[7].category + ' - ' + vaccineList[7].name}}
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class='col-sm-12 hidden-xs'></div>
+
                 <div class="col-xs-12 hidden-sm hidden-md hidden-lg text-right"><a
                         href="https://vnvc.vn/chuyen-muc/thong-tin-san-pham-vac-xin/" class=" view_all_dmvc "> Xem
-                        tất cả </a></div>
+                        tất cả </a>
+                </div>
             </div>
         </div>
         <div class="bgnews">

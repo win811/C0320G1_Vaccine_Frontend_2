@@ -43,48 +43,32 @@
                                             [src]="vaccine.image"
                                             alt="" width="600" height="353"
                                             sizes="(max-width: 600px) 100vw, 600px" /></p>
-                                    <p style="text-align: justify;">Vắc xin uốn ván &#8211; bạch hầu hấp phụ (Td) được
-                                        chỉ định cho trẻ em lứa tuổi lớn (từ 7 tuổi trở lên) và người lớn nhằm gây miễn
-                                        dịch, phòng các bệnh uốn ván và bạch hầu.</p>
+                                    <p style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}}</p>
                                     <p style="text-align: justify;"><strong>Nguồn gốc:</strong></p>
                                     <ul>
-                                        <li style="text-align: justify;">Là vắc xin được sản xuất bởi Viện vắc xin và
-                                            sinh phẩm y tế Nha Trang IVAC (Việt Nam)</li>
+                                        <li style="text-align: justify;">Là vắc xin được sản xuất bởi {{vaccine.country}}</li>
                                     </ul>
                                     <p style="text-align: justify;"><strong>Chỉ định:</strong></p>
                                     <ul>
-                                        <li style="text-align: justify;">Vắc xin uốn ván &#8211; bạch hầu hấp phụ (Td)
-                                            được chỉ định chủng ngừa cho người từ 7 tuổi trở lên tạo đáp ứng kháng thể
-                                            chống 2 bệnh bạch hầu và uốn ván.</li>
-                                        <li style="text-align: justify;">Vắc xin uốn ván &#8211; bạch hầu hấp phụ (Td)
+                                        <li style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}} 
+                                            được chỉ định chủng ngừa cho người từ {{vaccine.limitAge}} trở lên</li>
+                                        <li style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}}
                                             không chống chỉ định cho phụ nữ có thai và đang cho con bú. Cân nhắc sử dụng
                                             theo chỉ định của bác sĩ.</li>
                                     </ul>
-                                    <p style="text-align: justify;"><strong>Lịch tiêm phòng:</strong></p>
-                                    <ul>
-                                        <li style="text-align: justify;">Với đối tượng đã được tiêm đủ liều miễn dịch cơ
-                                            bản phòng bệnh uốn ván và bạch hầu thì tiêm nhắc lại 1 liều vắc xin uốn ván
-                                            &#8211; bạch hầu hấp phụ (Td) vào lứa tuổi thứ 7. Sau đó cứ 10 năm tiêm
-                                            phòng lại 1 liều vắc xin Td để củng cố miễn dịch.</li>
-                                        <li style="text-align: justify;">Với trẻ từ 7 tuổi trở lên nhưng trước đó chưa
-                                            được tiêm vắc xin phòng uốn ván, bạch hầu, thì tiêm miễn dịch cơ bản 2 liều,
-                                            liều thứ hai cách liều thứ nhất 1 tháng, sau 6 tháng tiêm nhắc 1 liều. Sau
-                                            đó cứ 10 năm sau tiêm nhắc lại 1 lần để củng cố miễn dịch.</li>
-                                    </ul>
                                     <p style="text-align: justify;"><strong>Đường tiêm &#8211; liều dùng:</strong></p>
                                     <ul>
-                                        <li style="text-align: justify;">Vắc xin uốn ván &#8211; bạch hầu hấp phụ (Td)
+                                        <li style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}}
                                             được chỉ định tiêm bắp sâu. Không được tiêm dưới da hoặc tĩnh mạch.</li>
                                         <li style="text-align: justify;">Lắc tan đều trước khi dùng.</li>
-                                        <li style="text-align: justify;">Liều tiêm 0,5 ml.</li>
+                                        <li style="text-align: justify;">Hàm lượng trên một liều tiêm {{vaccine.content}} ml.</li>
+                                        <li style="text-align: justify;">Số liều tiêm : {{vaccine.injectionTimes}}. {{vaccine.rangeTime == 0 ? "" : "Mỗi lần tiêm cách nhau " + vaccine.rangeTime + " tháng"}}</li>
+                                    
                                     </ul>
                                     <p style="text-align: justify;"><strong>Chống chỉ định:</strong></p>
                                     <ul>
-                                        <li style="text-align: justify;">Tiền sử quá mẫn với thành phần của vắc xin. Có
-                                            biểu hiện dị ứng với kháng nguyên bạch hầu và uốn ván ở những lần tiêm
-                                            trước.</li>
-                                        <li style="text-align: justify;">Tạm hoãn tiêm vắc xin uốn ván &#8211; bạch hầu
-                                            hấp phụ (Td) trong những trường hợp có bệnh nhiễm trùng cấp tính, sốt chưa
+                                        <li style="text-align: justify;">Tiền sử quá mẫn với thành phần của vắc xin</li>
+                                        <li style="text-align: justify;">Tạm hoãn tiêm {{vaccine.name | titlecase}} trong những trường hợp có bệnh nhiễm trùng cấp tính, sốt chưa
                                             rõ nguyên nhân.</li>
                                         <li style="text-align: justify;">Không tiêm bắp cho người có rối loạn chảy máu
                                             như Hemophilia hoặc giảm tiểu cầu.</li>
@@ -135,16 +119,13 @@
                                         <li style="text-align: justify;">Nếu đang dùng thuốc hoặc muốn tiêm cùng với các
                                             vắc xin khác vào cùng một thời điểm, hãy hỏi ý kiến của bác sĩ hoặc dược sĩ.
                                         </li>
-                                        <li style="text-align: justify;">Người đang dùng các thuốc hoặc liệu pháp gây ức
-                                            chế miễn dịch có thể làm giảm đáp ứng miễn dịch của vắc xin TD (Không áp
-                                            dụng với liệu pháp Corticosteroid ngắn hạn dưới 2 tuần).</li>
                                     </ul>
                                     <p style="text-align: justify;"><strong>Bảo quản:</strong></p>
                                     <ul>
-                                        <li style="text-align: justify;">Vắc xin nên được bảo quản ở nhiệt độ từ 2 độ C
-                                            đến 8 độ C, và không được để đông băng.</li>
+                                        <li style="text-align: justify;">Vắc xin nên được bảo quản ở nhiệt độ từ {{vaccine.conditions}}, và không được để đông băng.</li>
                                         <li style="text-align: justify;">Để xa tầm tay trẻ em.</li>
                                     </ul>
+                                    <p style="text-align: justify; color: green;"><strong>Giá vắc xin (trên 1 liều) : {{vaccine.price * vaccine.content | number}} vnd</strong></p>
                                     <div class="crp_related "><b>Bài viết liên quan:</b>
                                         <ul>
                                             <li><a

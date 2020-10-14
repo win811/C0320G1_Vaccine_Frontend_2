@@ -1,5 +1,6 @@
+import { VaccineService } from './../../share/services/vaccine.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Vaccine } from 'src/app/share/models/vaccine';
 
 @Component({
@@ -11,13 +12,21 @@ export class VaccineDetailComponent implements OnInit {
 
   vaccine : Vaccine;
 
-  constructor(private router : Router) {
-    const navigation = this.router.getCurrentNavigation();
-    this.vaccine = navigation.extras.state as Vaccine;
-    console.log(this.vaccine);
+  constructor(
+    private router : Router,
+    private activatedRoute : ActivatedRoute,
+    private vaccineService : VaccineService
+
+    ) {
+    
    }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(data => {
+        this.vaccineService.findVaccineById(Number(data.get("id"))).subscribe(data => {
+          this.vaccine = data;
+        })
+    })
   }
 
 }

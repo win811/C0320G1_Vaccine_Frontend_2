@@ -10,6 +10,7 @@ import { CommonModuleModule } from './common-module/common-module.module';
 import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.component';
 import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CommonModuleModule
+    CommonModuleModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

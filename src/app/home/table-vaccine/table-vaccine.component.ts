@@ -24,7 +24,8 @@ export class TableVaccineComponent implements OnInit {
     this.getPage(1);
   }
 
-  getPage(page: number) {
+  getPage(page : number) {
+    console.log(page);
     this.vaccineService.getPageVaccine(page - 1).subscribe(res => {
       this.totalElements = res.totalElements;
       this.pageSize = res.size;
@@ -36,10 +37,10 @@ export class TableVaccineComponent implements OnInit {
   }
 
   goToDetail(vaccine : Vaccine) {
-    const navigationExtras: NavigationExtras = {
-      state: vaccine
-    };
-    this.router.navigate(['/vaccine-detail'], navigationExtras);
+    // const navigationExtras: NavigationExtras = {
+    //   state: vaccine
+    // };
+    this.router.navigate(['/vaccine-detail',vaccine.id]);
   }
 
 }

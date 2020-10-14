@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: "table-vaccine", component: TableVaccineComponent
   },
-  { path: "vaccine-detail", component: VaccineDetailComponent },
+  { path: "vaccine-detail/:id", component: VaccineDetailComponent },
   
   {
     path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)

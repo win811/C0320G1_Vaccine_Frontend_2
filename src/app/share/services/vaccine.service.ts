@@ -38,4 +38,8 @@ export class VaccineService {
     getPageVaccine(pageNumber : number ) : Observable<Page<Vaccine>>{
         return this.http.get<Page<Vaccine>>(this.URL + "/vaccine-storage",this.getVaccineOptions(pageNumber));
     }
+
+    findVaccineById(vaccineId : number) : Observable<Vaccine> {
+        return this.http.get<Vaccine>(this.URL + '/vaccine/' + vaccineId,this.normalOption )
+    }
 }
