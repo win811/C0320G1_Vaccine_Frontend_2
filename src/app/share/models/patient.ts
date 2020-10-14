@@ -1,3 +1,4 @@
+import { VaccineRoad } from './vaccineRoad';
 export interface Patient {
   id: number;
   code: string;
@@ -9,4 +10,5 @@ export interface Patient {
   address: string;
   phoneNumber: string;
   email: string;
+  vaccineRoadList : VaccineRoad[];
 }

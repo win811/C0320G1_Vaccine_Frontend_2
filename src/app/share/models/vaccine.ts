@@ -1,3 +1,4 @@
+import { VaccineRoad } from './vaccineRoad';
 export interface Vaccine {
   id: number;
   name: string;
@@ -13,4 +14,6 @@ export interface Vaccine {
   price: number;
   injectionTimes: number;
   rangeTime: number;
+  image : string;
+  vaccineRoadList : VaccineRoad[];
 }
