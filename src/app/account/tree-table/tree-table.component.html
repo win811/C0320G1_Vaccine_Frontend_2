@@ -1,0 +1,12 @@
+<h2>Tree as Single Root Node</h2>
+<treetable
+  [tree]="singleRootTree"
+  [options]="treeOptions"
+  (nodeClicked)="logNode($event)">
+</treetable>
+
+<h2>Tree as Array of Nodes</h2>
+<treetable
+  [tree]="arrayOfNodesTree"
+  (nodeClicked)="logNode($event)">
+</treetable>
