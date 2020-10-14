@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [PatientListComponent],
   imports: [
     CommonModule
   ]
