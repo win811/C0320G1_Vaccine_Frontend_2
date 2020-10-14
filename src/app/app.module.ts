@@ -9,6 +9,7 @@ import { BodyComponent } from './home/body/body.component';
 import { CommonModuleModule } from './common-module/common-module.module';
 import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.component';
 import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.com
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CommonModuleModule
   ],
   providers: [],
