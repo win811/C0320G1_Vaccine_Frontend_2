@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class=" text-center">
     <button type="button" class="close btn btn-light" (click)="onNoClick()">&times;</button>
 
     <div class="row ">
@@ -9,7 +9,7 @@
                     <div class="text-danger" role="alert">
                         {{message}}
                     </div>
-                    <div>
+                    <div class="mt-2">
                         <div id="input1" class="row text-center">
                             <div class="col-md-2"><i class="icon icon-register-name icon-top"></i></div>
                             <div class="col-md-10">
@@ -48,14 +48,16 @@
                         </small>
                     </div>
 
-                    <label class=" col-xs-8 p-0 text-left float-left mt-3 mb-2 ">
-                        <input type="checkbox" (change)="remember($event)" name="RememberMe" />
-                        <span class="mr-3"> Ghi nhớ đăng nhập?</span>
-                        <a class="ml-5" href="/Account/ResetPassword">Quên mật khẩu?</a>
+                    <label class=" col-xs-8 p-0 text-left float-left mt-3 remember ">
+                        <input class="check" type="checkbox" (change)="remember($event)" name="RememberMe" />
+                        <span class="mr-3 "> Ghi nhớ đăng nhập?</span>
                     </label>
 
-                    <div>
+                    <div class="login">
                         <input type="submit" class="btn btn btn1 hvr-grow mb-2" value="Đăng nhập">
+                    </div>
+                    <div>
+                        <a class="ml-5" href="/Account/ResetPassword">Quên mật khẩu?</a>
                     </div>
                     <hr />
                     <p>Bạn chưa có tài khoản?</p>
