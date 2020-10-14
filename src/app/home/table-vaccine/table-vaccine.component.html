@@ -86,96 +86,110 @@
                         </div>
                         <div class="row ">
 
-                            <div class='row'>
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="box-ck">
-                                        <a (click)="goToDetail(vaccineList[0])">
-                                            <img [src]="vaccineList[0].image"
-                                                class="img-responsive"
-                                                alt="Vắc xin uốn ván &#8211; bạch hầu hấp phụ Td (Việt Nam)" />
-                                        </a>
-                                        <div class="box-title">
-                                            <a (click)="goToDetail(vaccineList[0])">
-                                                {{vaccineList[0].category + ' : ' + vaccineList[0].name | titlecase}}
-                                            </a>
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[0])">
+                                        <img width="235" height="156" [src]="vaccineList[0].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[0].category + ' - ' + vaccineList[0].name}}
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="box-ck">
-                                        <a (click)="goToDetail(vaccineList[1])">
-                                            <!-- https://vnvc.vn/wp-content/uploads/2020/07/VX_BachHau.jpg -->
-                                            <img [src]="vaccineList[1].image"
-                                                class="img-responsive"
-                                                alt="Vắc xin uốn ván &#8211; bạch hầu hấp phụ Td (Việt Nam)" />
-                                        </a>
-                                        <div class="box-title">
-                                            <a (click)="goToDetail(vaccineList[1])">
-                                                {{vaccineList[1].category + ' : ' + vaccineList[1].name | titlecase}}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="box-ck">
-                                        <a (click)="goToDetail(vaccineList[2])">
-                                            <!-- https://vnvc.vn/wp-content/uploads/2020/07/VX_BachHau.jpg -->
-                                            <img [src]="vaccineList[2].image"
-                                                class="img-responsive"
-                                                alt="Vắc xin uốn ván &#8211; bạch hầu hấp phụ Td (Việt Nam)" />
-                                        </a>
-                                        <div class="box-title">
-                                            <a (click)="goToDetail(vaccineList[2])">
-                                                {{vaccineList[2].category + ' : ' + vaccineList[2].name | titlecase}}
-                                            </a>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
-                            <div class='row'>
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="box-ck">
-                                        <a (click)="goToDetail(vaccineList[3])">
-                                            <img [src]="vaccineList[3].image"
-                                                class="img-responsive"
-                                                alt="Vắc xin uốn ván &#8211; bạch hầu hấp phụ Td (Việt Nam)" />
-                                        </a>
-                                        <div class="box-title">
-                                            <a (click)="goToDetail(vaccineList[3])">
-                                                {{vaccineList[3].category + ' : ' + vaccineList[3].name | titlecase}}
-                                            </a>
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[1])">
+                                        <img width="235" height="156" [src]="vaccineList[1].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[1].category + ' - ' + vaccineList[1].name}}
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="box-ck">
-                                        <a (click)="goToDetail(vaccineList[4])">
-                                            <img [src]="vaccineList[4].image"
-                                                class="img-responsive"
-                                                alt="Vắc xin uốn ván &#8211; bạch hầu hấp phụ Td (Việt Nam)" />
-                                        </a>
-                                        <div class="box-title">
-                                            <a (click)="goToDetail(vaccineList[4])">
-                                                {{vaccineList[4].category + ' : ' + vaccineList[4].name | titlecase}}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <div class="box-ck">
-                                        <a (click)="goToDetail(vaccineList[5])">
-                                            <img [src]="vaccineList[5].image"
-                                                class="img-responsive"
-                                                alt="Vắc xin uốn ván &#8211; bạch hầu hấp phụ Td (Việt Nam)" />
-                                        </a>
-                                        <div class="box-title">
-                                            <a (click)="goToDetail(vaccineList[5])">
-                                                {{vaccineList[5].category + ' : ' + vaccineList[5].name | titlecase}}
-                                            </a>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[2])">
+                                        <img width="235" height="156" [src]="vaccineList[2].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[2].category + ' - ' + vaccineList[2].name}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[3])">
+                                        <img width="235" height="156" [src]="vaccineList[3].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[3].category + ' - ' + vaccineList[3].name}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class='col-sm-12 hidden-xs'></div>
+            
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[4])">
+                                        <img width="235" height="156" [src]="vaccineList[4].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[4].category + ' - ' + vaccineList[4].name}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[5])">
+                                        <img width="235" height="156" [src]="vaccineList[5].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[5].category + ' - ' + vaccineList[5].name}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[6])">
+                                        <img width="235" height="156" [src]="vaccineList[6].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[6].category + ' - ' + vaccineList[6].name}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class='col-sm-3 col-xs-12'>
+                                <div class='vx_item item_1'>
+                                    <a (click)="goToDetail(vaccineList[7])">
+                                        <img width="235" height="156" [src]="vaccineList[7].image"
+                                             class="img-responsive wp-post-image" alt="Vắc xin 6 trong 1 INFARIX"
+                                             sizes="(max-width: 235px) 100vw, 235px" />
+                                        <div class='dv_title text-center'>
+                                            {{vaccineList[7].category + ' - ' + vaccineList[7].name}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class='col-sm-12 hidden-xs'></div>
                         
                         </div>
                         <div class="pinavigation-div" style="clear:both;">

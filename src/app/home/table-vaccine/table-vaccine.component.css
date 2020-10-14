@@ -16,7 +16,11 @@
 
 
     .img-responsive {
-        height: 245px !important;
+        height: 180px !important;
+    }
+
+    .vx_item img:hover{
+        transform: scale(1.1) !important;
     }
 
   img.wp-smiley,
