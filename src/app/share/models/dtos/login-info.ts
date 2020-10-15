@@ -1,10 +1,10 @@
 //Created by: Quân
 export class AuthLoginInfo {
-    email: string;
+    username: string;
     password: string;
 
     constructor(accountName: string, accountPassword: string) {
-        this.email = accountName;
+        this.username = accountName;
         this.password = accountPassword;
     }
 }

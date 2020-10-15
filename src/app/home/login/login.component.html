@@ -1,5 +1,5 @@
-<div class=" text-center">
-    <button type="button" class="close btn btn-light" (click)="onNoClick()">&times;</button>
+<div class=" body text-center">
+
 
     <div class="row ">
         <div class="col-md-12 justify-content-sm-center">
@@ -12,20 +12,18 @@
                     <div class="mt-2">
                         <div id="input1" class="row text-center">
                             <div class="col-md-2"><i class="icon icon-register-name icon-top"></i></div>
-                            <div class="col-md-10">
-                                <input class="input-top float-left" id="email-field" placeholder="Tên đăng nhập"
-                                    type="text" formControlName="email" /></div>
+                            <div class="col-md-10 mb-2">
+                                <input class="input-top float-left" id="username-field" placeholder="Tên đăng nhập"
+                                    type="text" formControlName="username" /></div>
                             <div class="clearfix"></div>
                         </div>
                         <small class="d-block text-danger"
-                            *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                            *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">
                             <span
-                                *ngIf="loginForm.get('email').hasError('required')||loginForm.get('email').hasError('whitespace') ">Email
+                                *ngIf="loginForm.get('username').hasError('required')||loginForm.get('username').hasError('whitespace') ">Tên
+                                đăng nhập
                                 không được để trống </span>
 
-                            <span
-                                *ngIf="loginForm.get('email').hasError('pattern')&& !loginForm.get('email').hasError('whitespace')">Email
-                                sai định dạng</span>
                         </small>
                     </div>
 
@@ -60,7 +58,7 @@
                         <a class="ml-5" href="/Account/ResetPassword">Quên mật khẩu?</a>
                     </div>
                     <hr />
-                    <p>Bạn chưa có tài khoản?</p>
+                    <p class="mb">Bạn chưa có tài khoản?</p>
                     <button type="button" class="btn btn-red dk hvr-grow">Đăng ký</button>
                 </div>
             </form>

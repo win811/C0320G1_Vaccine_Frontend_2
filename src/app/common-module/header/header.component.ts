@@ -36,8 +36,8 @@ export class HeaderComponent implements OnInit {
   //Created by: Quân
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '440px',
-      height: '600px',
+      width: '400px',
+      height: '560px',
       data: {},
       panelClass: 'custom-dialog'
 

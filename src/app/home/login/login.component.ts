@@ -35,8 +35,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, validateWhitespace,
-      Validators.pattern('^[a-z][a-z0-9_\\.]{2,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$')]],
+      username: ['', [Validators.required, validateWhitespace]],
       password: ['', [Validators.required]],
     });
 
@@ -70,7 +69,7 @@ export class LoginComponent implements OnInit {
   }
 
   get femail() {
-    return this.loginForm.get('email');
+    return this.loginForm.get('username');
   }
 
   get fpassword() {

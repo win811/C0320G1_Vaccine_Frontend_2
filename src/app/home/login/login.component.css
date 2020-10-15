@@ -1,6 +1,7 @@
 
 @import 'https://res.flynow.vn/cdn/flynow/css/fn-icon.css';
 
+
 input{
     border:  solid white !important;
 }
@@ -24,7 +25,7 @@ input:focus{
 .field-icon {
     float: right;
     margin-left: -25px;
-    margin-top: 28px !important;
+    margin-top: 33px !important;
     position: relative;
     z-index: 2;
 }
@@ -80,7 +81,7 @@ input:focus{
 
 .fab{
     margin-right: 5px;
-    color: #1877f2 ;
+    color: #2a388f ;
 
 }
 .google:hover>.g1{
@@ -113,7 +114,7 @@ hr{
 }
 
 .title{
-    color: #4469B0 !important;
+    color: #2a388f !important;
     font-size: 26px;
     font-family: Bebeboo-SemiBold;
     text-align: center;
@@ -123,7 +124,7 @@ hr{
 }
 
 .btn1{
-    background-color: #4469B0;
+    background-color: #2a388f;
     color: white;
     width: 80%;
     border-radius:10px ;
@@ -138,8 +139,8 @@ hr{
 
 
 .dk{
-    border-color: #4469B0 !important;
-    color:#4469B0 !important;
+    border-color: #2a388f !important;
+    color:#2a388f !important;
     width: 80%;
     border-radius:60px ;
 }
@@ -190,7 +191,7 @@ margin-top:10px
 }
 
 .input-top{
-    width: 270px !important;
+    width: 200px !important;
 
 }
 
@@ -199,9 +200,26 @@ margin-top:10px
 }
 
 .login{
-    margin-top: 20px;
+    margin-top: 20px !important;
     margin-bottom: 20px;
 }
 
+.login>input{
+    margin-top: 20px;
+}
+
+.mb{
+    margin-top: 10px;
+}
+
+.body{
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+}
+
+.check{
+    margin-right: 3px;
+    padding-left: 0px !important;
+}
 
 
