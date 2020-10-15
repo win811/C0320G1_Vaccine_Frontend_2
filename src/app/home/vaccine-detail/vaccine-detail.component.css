@@ -14,16 +14,6 @@
 @import 'https://vnvc.vn/wp-content/themes/wg/css/style.css?ver=1.6.3';
 @import 'https://vnvc.vn/favicon.ico';
 
-/* @import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"; */
-
-
-    .img-responsive {
-        height: 180px !important;
-    }
-
-    .vx_item img:hover{
-        transform: scale(1.1) !important;
-    }
 
   img.wp-smiley,
   img.emoji {

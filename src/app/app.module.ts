@@ -8,22 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BodyComponent } from './home/body/body.component';
 import { CommonModuleModule } from './common-module/common-module.module';
 import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.component';
+import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
-    TableVaccineComponent
+    TableVaccineComponent,
+    VaccineDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CommonModuleModule,
-    HttpClientModule
+    NgxPaginationModule,
+    CommonModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,172 @@
+<app-header></app-header>
+
+<body data-rsssl=1 class="post bdnone t10297">
+
+    <div class="divall">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="div-boxbanner">
+                        <img src="https://vnvc.vn/wp-content/uploads/2017/04/dc-lvaccine.jpg">
+                        <div class="title-banner">
+                            <div>NGUỒN VẮC XIN ĐẦY ĐỦ, CHÍNH THỐNG
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="gioi_thieu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row div-breckum">
+                            <div class="col-sm-12">
+                                <div id="breadcrumbs"><span xmlns:v="http://rdf.data-vocabulary.org/#"><span
+                                            typeof="v:Breadcrumb"><a routerLink="/table-vaccine" rel="v:url"
+                                                property="v:title">DANH SÁCH VẮC XIN</a> » <span class="breadcrumb_last">
+                                                    {{vaccine.category + " : " + vaccine.name | titlecase}}
+                                                </span></span></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="title">
+                            <h1 class="gt-title">{{vaccine.category + " : " + vaccine.name | titlecase}}</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="gt-info div_detail_post">
+                                    <p style="text-align: center;">
+                                        <img class="alignnone size-full wp-image-10293"
+                                            [src]="vaccine.image"
+                                            alt="" width="600" height="353"
+                                            sizes="(max-width: 600px) 100vw, 600px" /></p>
+                                    <p style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}}</p>
+                                    <p style="text-align: justify;"><strong>Nguồn gốc:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Là vắc xin được sản xuất bởi {{vaccine.country}}</li>
+                                    </ul>
+                                    <p style="text-align: justify;"><strong>Chỉ định:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}} 
+                                            được chỉ định chủng ngừa cho người từ {{vaccine.limitAge}} trở lên</li>
+                                        <li style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}}
+                                            không chống chỉ định cho phụ nữ có thai và đang cho con bú. Cân nhắc sử dụng
+                                            theo chỉ định của bác sĩ.</li>
+                                    </ul>
+                                    <p style="text-align: justify;"><strong>Đường tiêm &#8211; liều dùng:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">{{vaccine.category + " - " + vaccine.name | titlecase}}
+                                            được chỉ định tiêm bắp sâu. Không được tiêm dưới da hoặc tĩnh mạch.</li>
+                                        <li style="text-align: justify;">Lắc tan đều trước khi dùng.</li>
+                                        <li style="text-align: justify;">Hàm lượng trên một liều tiêm {{vaccine.content}} ml.</li>
+                                        <li style="text-align: justify;">Số liều tiêm : {{vaccine.injectionTimes}}. {{vaccine.rangeTime == 0 ? "" : "Mỗi lần tiêm cách nhau " + vaccine.rangeTime + " tháng"}}</li>
+                                    
+                                    </ul>
+                                    <p style="text-align: justify;"><strong>Chống chỉ định:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Tiền sử quá mẫn với thành phần của vắc xin</li>
+                                        <li style="text-align: justify;">Tạm hoãn tiêm {{vaccine.name | titlecase}} trong những trường hợp có bệnh nhiễm trùng cấp tính, sốt chưa
+                                            rõ nguyên nhân.</li>
+                                        <li style="text-align: justify;">Không tiêm bắp cho người có rối loạn chảy máu
+                                            như Hemophilia hoặc giảm tiểu cầu.</li>
+                                        <li style="text-align: justify;"><strong>Thận trọng khi sử dụng:</strong></li>
+                                        <li style="text-align: justify;">Đối tượng đang sốt cao cấp tính (hoãn tiêm cho
+                                            đến khi trẻ hết sốt).</li>
+                                        <li style="text-align: justify;">Thăm khám trước khi tiêm để loại trừ những
+                                            trường hợp chống chỉ định, bảo đảm an toàn và hạn chế các tác dụng bất lợi
+                                            của vắc xin trong lúc tiêm chủng.</li>
+                                        <li style="text-align: justify;">Không tiêm quá liều vắc xin.</li>
+                                        <li style="text-align: justify;">Không tiêm vắc xin vào mạch máu, tránh sốc phản
+                                            vệ.</li>
+                                        <li style="text-align: justify;">Đôi khi tại chỗ tiêm xuất hiện nốt cứng kéo dài
+                                            2 &#8211; 3 tuần rồi tự khỏi.</li>
+                                        <li style="text-align: justify;">Nếu tiêm kết hợp với vắc xin khác hoặc huyết
+                                            thanh miễn dịch thì tiêm vắc xin Td khác vị trí.</li>
+                                        <li style="text-align: justify;">Nếu tiêm nhầm vắc xin vào dưới da thì phản ứng
+                                            phụ sẽ rất rầm rộ do vắc xin chứa tá chất nhôm.</li>
+                                        <li style="text-align: justify;">Luôn có sẵn thiết bị và phác đồ phòng sốc phản
+                                            vệ.</li>
+                                    </ul>
+                                    <p style="text-align: justify;">Thăm khám trước khi tiêm để loại trừ những trường
+                                        hợp chống chỉ định, bảo đảm an toàn và hạn chế các tác dụng bất lợi của vắc xin
+                                        trong lúc tiêm chủng.</p>
+                                    <p style="text-align: justify;"><strong>Tác dụng không mong muốn:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Phản ứng tại chỗ như đau, quầng đỏ, sưng nhẹ
+                                            tại vị trí tiêm (từ 10% &#8211; 75% trường hợp).</li>
+                                        <li style="text-align: justify;">Đôi khi có sốt nhẹ 38 độ C &#8211; 39 độ C, vài
+                                            ngày sau tự hết.</li>
+                                        <li style="text-align: justify;">Áp xe vô khuẩn khoảng 6 &#8211; 10 trường hợp/1
+                                            triệu liều.</li>
+                                        <li style="text-align: justify;">Có thể xuất hiện phản ứng phụ toàn thân như
+                                            sốt, đau cơ cánh tay, đau đầu (khoảng 10% trường hợp).</li>
+                                        <li style="text-align: justify;">Các phản ứng phụ nói chung là nhẹ và tự khỏi.
+                                        </li>
+                                        <li style="text-align: justify;">Có thể xuất hiện viêm dây thần kinh ngoại biên,
+                                            hội chứng Guillain-Barré nhưng rất hiếm gặp.</li>
+                                    </ul>
+                                    <p style="text-align: justify;"><strong>Đối với phụ nữ có thai và cho con
+                                            bú:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Không chống chỉ định cho phụ nữ có thai và cho
+                                            con bú.</li>
+                                    </ul>
+                                    <p style="text-align: justify;"><strong>Tương tác thuốc:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Nếu đang dùng thuốc hoặc muốn tiêm cùng với các
+                                            vắc xin khác vào cùng một thời điểm, hãy hỏi ý kiến của bác sĩ hoặc dược sĩ.
+                                        </li>
+                                    </ul>
+                                    <p style="text-align: justify;"><strong>Bảo quản:</strong></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Vắc xin nên được bảo quản ở nhiệt độ từ {{vaccine.conditions}}, và không được để đông băng.</li>
+                                        <li style="text-align: justify;">Để xa tầm tay trẻ em.</li>
+                                    </ul>
+                                    <p style="text-align: justify; color: green;"><strong>Giá vắc xin (trên 1 liều) : {{vaccine.price * vaccine.content | number}} vnd</strong></p>
+                                    <div class="crp_related "><b>Bài viết liên quan:</b>
+                                        <ul>
+                                            <li><a
+                                                    href="https://vnvc.vn/boostrix-vac-xin-phong-cac-benh-bach-hau-uon-van-ho-ga/"><span
+                                                        class="crp_title">BOOSTRIX &#8211; Vắc xin phòng các bệnh Bạch
+                                                        hầu &#8211; Uốn ván &#8211; Ho gà</span></a></li>
+                                            <li><a
+                                                    href="https://vnvc.vn/menactra-vac-xin-nao-mo-cau-nhom-acy-va-w-135-polysaccharide-cong-hop-giai-doc-bach-hau/"><span
+                                                        class="crp_title">MENACTRA &#8211; Vắc xin não mô cầu (nhóm
+                                                        A,C,Y và W-135) polysaccharide cộng hợp giải độc tố bạch
+                                                        hầu</span></a></li>
+                                            <li><a
+                                                    href="https://vnvc.vn/tiem-nhac-bach-hau-uon-van-ho-ga-cho-tre-truoc-khi-len-lop-1/"><span
+                                                        class="crp_title">Vì sao phải tiêm nhắc Bạch hầu &#8211; Uốn ván
+                                                        &#8211; Ho gà cho trẻ trước khi lên lớp 1?</span></a></li>
+                                            <li><a
+                                                    href="https://vnvc.vn/prevenar-13-vac-xin-phong-benh-viem-phoi-viem-mang-nao-viem-tai-giua-nhiem-khuan-huyet-phe-cau-khuan/"><span
+                                                        class="crp_title">PREVENAR 13 &#8211; Vắc xin phòng bệnh viêm
+                                                        phổi, viêm màng não, viêm tai giữa, nhiễm khuẩn huyết do phế cầu
+                                                        khuẩn</span></a></li>
+                                            <li><a href="https://vnvc.vn/hexaxim-vac-xin-6-trong-1/"><span
+                                                        class="crp_title">HEXAXIM &#8211; Vắc xin 6 trong 1 (phòng 6
+                                                        bệnh: ho gà, bạch hầu, uốn ván, viêm gan B, bại liệt và các bệnh
+                                                        do Hib)</span></a></li>
+                                            <li><a
+                                                    href="https://vnvc.vn/vi-sao-nen-tiem-nhac-vac-xin-phong-benh-bach-hau-uon-van-ho-ga/"><span
+                                                        class="crp_title">Vì sao nên tiêm nhắc vắc xin phòng bệnh Bạch
+                                                        hầu &#8211; Uốn ván &#8211; Ho gà?</span></a></li>
+                                        </ul>
+                                        <div class="crp_clear"></div>
+                                    </div>
+        
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+<app-footer></app-footer>
