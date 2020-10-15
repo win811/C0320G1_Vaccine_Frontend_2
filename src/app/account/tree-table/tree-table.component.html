@@ -1,12 +1,45 @@
-<h2>Tree as Single Root Node</h2>
-<treetable
-  [tree]="singleRootTree"
-  [options]="treeOptions"
-  (nodeClicked)="logNode($event)">
-</treetable>
+<mat-accordion *ngFor="let patient of patients">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>account_circle</mat-icon>
+        {{  patient.fullName }}
+      </mat-panel-title>
+      <mat-panel-description>
 
-<h2>Tree as Array of Nodes</h2>
-<treetable
-  [tree]="arrayOfNodesTree"
-  (nodeClicked)="logNode($event)">
-</treetable>
+        Ngày Sinh : {{patient.birthDay}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-accordion *ngFor="let vaccineRoad of patient.vaccineRoadList">
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+       <span class="material-icons">
+add_circle
+</span>
+            Tên Vắc-xin: {{vaccineRoad.vaccine.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            Loại Vắc-xin:
+            {{vaccineRoad.vaccine.category}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-accordion *ngFor="let vaccineRoadDetails of vaccineRoad.vaccineRoadDetailsList">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{"Đợt Tiêm : " + vaccineRoadDetails.injectionTimes}}
+              </mat-panel-title>
+              <mat-panel-description>
+                Ngày Tiêm : <span class="badge badge-secondary">  {{vaccineRoadDetails.injectionDate}}</span>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <h6>Thông Tin Tiêm Chủng Chi Tiết</h6>
+            <p>Trạng Thái Tiêm Chủng : <span class="badge badge-danger">  {{vaccineRoadDetails.isInjected ? 'Đã Tiêm' : 'Chưa Tiêm'}}                </span>
+            </p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-expansion-panel>
+</mat-accordion>

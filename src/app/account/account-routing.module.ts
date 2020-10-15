@@ -4,7 +4,7 @@ import {TreeTableComponent} from './tree-table/tree-table.component';
 const routes: Routes = [
 
   {
-    path: 'tree', component: TreeTableComponent,
+    path: '', component: TreeTableComponent,
   },
 
 ];

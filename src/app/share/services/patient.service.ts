@@ -2,24 +2,25 @@ import {Injectable} from '@angular/core';
 
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { Patient } from '../models/patient';
+import {Patient} from '../models/patient';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
 
-    private readonly URL = 'http://localhost:8080/api/v1';
-    
-    normalOption = { 
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json'
-        })
-    }
+  private readonly URL = 'http://localhost:8080/api/v1';
 
-    constructor(private http: HttpClient) { }
+  normalOption = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-    getPatientByAccountId(id : number ) : Observable<Patient[]>{
-        return this.http.get<Patient[]>(this.URL + "/" + id,this.normalOption);
-    }
+  constructor(private http: HttpClient) {
+  }
+
+  getPatientByAccountId(id: number): Observable<Patient[]> {
+    return this.http.get<Patient[]>(this.URL + '/patientByAccount/' + id, this.normalOption);
+  }
 }

@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BodyComponent } from './home/body/body.component';
 import { CommonModuleModule } from './common-module/common-module.module';
 import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.compon
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CommonModuleModule
+    CommonModuleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
