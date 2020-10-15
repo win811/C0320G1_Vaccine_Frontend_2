@@ -42,4 +42,8 @@ export class VaccineService {
     findVaccineById(vaccineId : number) : Observable<Vaccine> {
         return this.http.get<Vaccine>(this.URL + '/vaccine/' + vaccineId,this.normalOption )
     }
+
+    getAllVaccine() : Observable<Vaccine[]> {
+        return this.http.get<Vaccine[]>(this.URL + '/all-vaccine',this.normalOption);
+    }
 }

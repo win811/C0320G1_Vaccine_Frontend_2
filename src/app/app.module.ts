@@ -1,3 +1,5 @@
+import { RegistrationVaccinationComponent } from './home/registration-vaccination/registration-vaccination.component';
+import { MaterialModule } from './material.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,13 +13,15 @@ import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.compon
 import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
     TableVaccineComponent,
-    VaccineDetailComponent
+    VaccineDetailComponent,
+    RegistrationVaccinationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserAnimationsModule,
     HttpClientModule,
     CommonModuleModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
