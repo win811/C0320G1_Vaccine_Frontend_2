@@ -1,5 +1,16 @@
 <app-header></app-header>
-<div class="body">
+<div class="body container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="div-boxbanner">
+            <img src="https://vnvc.vn/wp-content/uploads/2017/06/dc-dvu.jpg">
+            <div class="title-banner">
+                <div>ĐĂNG KÝ THÔNG TIN TIÊM CHỦNG
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <mat-progress-bar *ngIf="statusLoading" mode="indeterminate"></mat-progress-bar>
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
@@ -39,11 +50,11 @@
               <mat-datepicker-toggle  matSuffix [for]="dp3"></mat-datepicker-toggle>
               <mat-datepicker #dp3  disabled="false"></mat-datepicker>
             </mat-form-field>
-            <mat-form-field class=" field-ad row " style="width:300px;">
+            <mat-form-field class=" field-ad row ">
               <mat-label *ngIf="firstFormGroup.controls.email.touched&&firstFormGroup.controls.email.errors?.pattern"
                          class="text-danger">Email định dạng name@domain.com
               </mat-label>
-              <input style="width: 200px" matInput placeholder="Email" formControlName="email" required email>
+              <input matInput placeholder="Email" formControlName="email" required email>
               <button class="float-right " mat-button (click)="sendVerifyToken()">Gửi Mã</button>
             </mat-form-field>
           </div>
@@ -68,12 +79,14 @@
               </mat-label>
               <input class="mr-5" matInput placeholder="Số điện thoại" formControlName="phoneNumber" required>
             </mat-form-field>
-            <mat-form-field class=" field-ad row" style="width:300px">
-              <mat-label><span *ngIf="verify=='verify'" class="material-icons">
-verified_user
-</span> Mã Xác Nhận
+            <mat-form-field class=" field-ad row" >
+              <mat-label>
+                <!-- <span *ngIf="verify=='verify'" class="material-icons">
+                  verified_user
+                </span> -->
+                 Mã xác nhận
               </mat-label>
-              <input style="width: 180px" matInput placeholder="Nhập Mã" formControlName="code" required>
+              <input matInput placeholder="Nhập Mã" formControlName="code" required>
               <button [disabled]="verify=='verify'" class="float-right " mat-button (click)="VerifyCode()">Xác Nhận
               </button>
 
