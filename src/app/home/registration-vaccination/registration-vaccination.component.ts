@@ -1,14 +1,18 @@
+import { BookHistoryService } from './../../share/services/bookHistory.service';
+import { Account } from './../../share/models/account';
+
 import {Component, NgModule, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {Router} from '@angular/router';
-import {InjectionHistoryService} from '../../shared/services/injection-history.service';
+
 import {MAT_DATE_LOCALE} from '@angular/material';
 import { Patient } from 'src/app/share/models/patient';
 import { Vaccine } from 'src/app/share/models/vaccine';
 import { VaccineService } from 'src/app/share/services/vaccine.service';
 import { NotifiByDucService } from 'src/app/share/services/notifi-by-duc.service';
-import { TokenStorageService } from 'src/app/share/services/TokenStorageService';
+import { TokenStorageService } from 'src/app/share/services/TokenStorage.service';
+import { BookHistory } from 'src/app/share/models/bookHistory';
 
 export interface DTO {
   name: string;
@@ -44,7 +48,7 @@ export class RegistrationVaccinationComponent implements OnInit {
     country: '',
   };
   patient: Patient = {} as Patient;
-  injection: InjectionHistory = {} as InjectionHistory;
+  bookHistory = {} as BookHistory;
   dto: DTO;
   message: string;
   account: Account = {id: 0};
@@ -61,7 +65,7 @@ export class RegistrationVaccinationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private injectionHistoryService: InjectionHistoryService,
+    private bookHistoryService: BookHistoryService,
     private vaccineService: VaccineService,
     private noti: NotifiByDucService,
     private tokenStorageService: TokenStorageService
@@ -81,14 +85,15 @@ export class RegistrationVaccinationComponent implements OnInit {
     this.maxDateRegistration = new Date(currentYear,currentMonth+2, currentDay);
     this.minDateRegistration = new Date(currentYear,currentMonth+1, currentDay);
     this.firstFormGroup = this.formBuilder.group({
-      fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]*$/)]],
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]*$/)]],
+      birthDay: ['', Validators.required],
       gender: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern(/^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/)]],
-      birthday: ['', Validators.required],
-      code: ['', Validators.required],
       parentName: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]*$/)]],
+      parentIdCard: [''],
       address: ['', Validators.required],
-      phoneNumber: ['', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]]
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]],
+      email: ['', [Validators.required, Validators.pattern(/^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/)]],
+      code: ['', Validators.required],
     });
     this.secondFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
@@ -107,13 +112,12 @@ export class RegistrationVaccinationComponent implements OnInit {
       country: '',
       inventoryStatus: ''
     };
-    console.warn('getpage');
-    this.getPage(1);
+    this.getListVaccine();
   }
 
-  getPage(page: number) {
-    this.vaccineService.getAllVacxin().subscribe(res => {
-      this.vaccineList = res.body;
+  getListVaccine() {
+    this.vaccineService.getAllVaccine().subscribe(res => {
+      this.vaccineList = res;
       console.log('list vacxin');
       console.log(this.vaccineList);
     }, error => {
@@ -121,17 +125,24 @@ export class RegistrationVaccinationComponent implements OnInit {
     });
   }
 
+
+
   registration() {
     this.statusLoading = true;
-    this.injection.vaccine = this.vacxin;
-    this.injection.patient = this.firstFormGroup.value;
-    this.dto = this.secondFormGroup.value;
-    this.injection.injectionDate = this.dto.injectionDate;
-    this.account.id = Number(this.tokenStorageService.getJwtResponse().accountId);
-    this.injection.account = this.account;
-    console.log(this.injection);
+    
+    this.bookHistory.name = this.firstFormGroup.value.name;
+    this.bookHistory.birthDay = this.firstFormGroup.value.birthDay;
+    this.bookHistory.gender = this.firstFormGroup.value.gender;
+    this.bookHistory.parentName = this.firstFormGroup.value.parentName;
+    this.bookHistory.parentIdCard = this.firstFormGroup.value.parentIdCard;
+    this.bookHistory.address = this.firstFormGroup.value.address;
+    this.bookHistory.phoneNumber = this.firstFormGroup.value.phoneNumber;
+    this.bookHistory.email = this.firstFormGroup.value.email;
+    this.bookHistory.vaccine = this.vacxin;
+    this.bookHistory.injectionDate = this.secondFormGroup.value.injectionDate;
+    console.log(this.bookHistory);
 
-    this.injectionHistoryService.RegistrationHistory(this.injection).subscribe(data => {
+    this.bookHistoryService.registerBookHistory(this.bookHistory).subscribe(data => {
       this.noti.showNotification('success', 'Thông Báo', data.message);
       this.statusLoading = false;
       this.router.navigate(['']);
@@ -142,25 +153,19 @@ export class RegistrationVaccinationComponent implements OnInit {
   }
 
   sendVerifyToken() {
-    this.injection.patient = this.firstFormGroup.value;
-    const email = this.injection.patient.email;
-    this.injectionHistoryService.sendVerifyToken(email).subscribe(data => {
+    const email = this.firstFormGroup.value.email;
+    this.bookHistoryService.sendVerifyToken(email).subscribe(data => {
       this.noti.showNotification('success', 'Thông Báo', data.message);
     }, error => {
       this.noti.showNotification('danger', 'Thông Báo', error.error.message);
     });
   }
 
-  setInjection() {
-    this.injection.vaccine = this.vacxin;
-    this.injection.patient = this.firstFormGroup.value;
-    this.dto = this.secondFormGroup.value;
-    this.injection.injectionDate = this.dto.injectionDate;
-  }
-
   VerifyCode() {
     this.statusLoading = true;
-    this.injectionHistoryService.verifyCode(this.firstFormGroup.value).subscribe(data => {
+    const email = this.firstFormGroup.value.email;
+    const code = this.firstFormGroup.value.code;
+    this.bookHistoryService.verifyCode(email,code).subscribe(data => {
       this.noti.showNotification('success', 'Thông Báo', data.message);
       this.verify = 'verify';
     }, error => {

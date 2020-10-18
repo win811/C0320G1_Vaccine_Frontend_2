@@ -14,6 +14,8 @@ import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.com
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotificationsComponent } from './home/notifications/notifications.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BodyComponent,
     TableVaccineComponent,
     VaccineDetailComponent,
-    RegistrationVaccinationComponent
+    RegistrationVaccinationComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxPaginationModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
