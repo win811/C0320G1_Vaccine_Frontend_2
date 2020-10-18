@@ -1,4 +1,4 @@
-/* @import 'https://vnvc.vn/wp-content/plugins/captcha/css/front_end_style.css?ver=4.4.5';
+@import 'https://vnvc.vn/wp-content/plugins/captcha/css/front_end_style.css?ver=4.4.5';
 @import 'https://vnvc.vn/wp-includes/css/dashicons.min.css?ver=4.7.18';
 @import 'https://vnvc.vn/wp-content/plugins/captcha/css/desktop_style.css?ver=4.4.5';
 @import 'https://vnvc.vn/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.9.2';
@@ -11,7 +11,7 @@
 @import 'https://vnvc.vn/wp-content/themes/wg/css/font-awesome.min.css';
 @import 'https://vnvc.vn/wp-content/themes/wg/css/flexslider.css';
 @import 'https://vnvc.vn/wp-content/themes/wg/css/style.css?ver=1.6.3';
-@import 'https://vnvc.vn/favicon.ico'; */
+@import 'https://vnvc.vn/favicon.ico';
 
 @import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
@@ -70,7 +70,9 @@
     margin-top:118px ;
 }
 
-
+.body{
+  margin-top: 118px;
+}
 
 .mat-stepper-horizontal {
   margin-top: 8px;
