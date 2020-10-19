@@ -7,14 +7,20 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { VaccineRoadComponent} from './vaccine-road/vaccine-road.component';
 import {MatBadgeModule, MatButtonModule, MatExpansionModule, MatIconModule, MatTableModule} from '@angular/material';
 import {MaterialModule} from '../material.module';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PatientCreateComponent } from './patient-create/patient-create.component';
 
 @NgModule({
   declarations: [
     AdminLayoutComponent,
     NavbarComponent,
     SidebarComponent,
+    PatientListComponent,
     VaccineRoadComponent,
-  ] ,
+    PatientCreateComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -24,7 +30,14 @@ import {MaterialModule} from '../material.module';
     MatTableModule,
     MatButtonModule,
     MatBadgeModule,
-
+    AdminRoutingModule,
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule
+  ],
+  entryComponents:[
+    PatientCreateComponent
   ]
 })
 export class AdminModule { }
