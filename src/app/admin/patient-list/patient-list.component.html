@@ -75,7 +75,7 @@
           <td>{{patient.parentIdCard}}</td>
           <td>{{patient.vaccineRoadList.length}}</td>
           <td>
-            <button type="button" class="btn btn-warning">Xem lộ trình</button>
+            <button type="button"  [routerLink]="['/admin/roaddetail',patient.id]" class="btn btn-warning">Xem lộ trình</button>
           </td>
         </tr>
         </tbody>

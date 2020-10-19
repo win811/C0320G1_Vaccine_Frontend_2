@@ -7,9 +7,9 @@ import {PatientListComponent} from './patient-list/patient-list.component';
 const routes: Routes = [
 
   {
-    path: '', component: AdminLayoutComponent, children: [{
-      path: 'road', component: VaccineRoadComponent
-    }, {path: 'patient-list', component: PatientListComponent}
+    path: '', component: AdminLayoutComponent, children: [
+      {path: 'patient-list', component: PatientListComponent},
+      {path: 'roaddetail/:id', component: VaccineRoadComponent}
     ]
   }
 ];

@@ -4,6 +4,7 @@ import {PatientService} from '../../share/services/patient.service';
 import {Patient} from '../../share/models/patient';
 import {VaccineRoadService} from '../../share/services/vaccine-road.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -13,18 +14,22 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 })
 export class VaccineRoadComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'date', 'status', 'action'];
-
+  private sub: Subscription;
   private idPatient: string;
   patient: Patient = {} as Patient;
 
-  constructor(public dialog:MatDialog,private activatedRoute: ActivatedRoute, private patientService: PatientService, private vaccineRoadService: VaccineRoadService) {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.idPatient = params['id'];
-    });
+  constructor(
+    public dialog: MatDialog,
+    private router: ActivatedRoute,
+    private patientService: PatientService,
+    private vaccineRoadService: VaccineRoadService) {
   }
 
   ngOnInit() {
-    this.getPatient(1);
+    this.sub = this.router.params.subscribe(param => {
+      this.idPatient = param.id;
+      this.getPatient(this.idPatient);
+    });
   }
 
   getPatient(id) {
@@ -34,6 +39,7 @@ export class VaccineRoadComponent implements OnInit {
 
     });
   }
+
   changeStatus(id) {
     this.vaccineRoadService.updateRoadDetail(id).subscribe(data => {
       console.log(data);

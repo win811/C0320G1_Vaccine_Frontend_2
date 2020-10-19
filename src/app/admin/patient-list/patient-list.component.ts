@@ -65,6 +65,7 @@ export class PatientListComponent implements OnInit {
       }),
       map(res => res.content)
     );
+    console.warn(this.patients);
   }
 
   search() {
