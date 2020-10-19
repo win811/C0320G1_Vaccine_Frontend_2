@@ -1,3 +1,5 @@
+import { CommonModuleModule } from './../common-module/common-module.module';
+import { MaterialModule } from './../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TreeTableComponent } from './tree-table/tree-table.component';
@@ -12,8 +14,8 @@ import {MatExpansionModule, MatIconModule} from '@angular/material';
     CommonModule,
     TreetableModule,
     AccountRoutingModule,
-    MatExpansionModule,
-    MatIconModule
+    MaterialModule,
+    CommonModuleModule
   ]
 })
 export class AccountModule { }

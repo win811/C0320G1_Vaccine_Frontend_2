@@ -1,4 +1,5 @@
-
+<app-header></app-header>
+<div class="container body">
 <div class="card card-lg">
   <h3 class="card-header border-bottom-0">
     Danh Sách Bệnh Nhân </h3>
@@ -32,12 +33,12 @@
                   {{"Đợt Tiêm : " + vaccineRoadDetails.injectionTimes}}
                 </mat-panel-title>
                 <mat-panel-description>
-                  Ngày Tiêm : <span class="badge badge-secondary">  {{vaccineRoadDetails.injectionDate}}</span>
+                  Ngày Tiêm : <span class="badge badge-info">  {{vaccineRoadDetails.injectionDate}}</span>
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <h6>Thông Tin Tiêm Chủng Chi Tiết</h6>
-              <p>Trạng Thái Tiêm Chủng : <span
-                class="badge badge-danger">  {{vaccineRoadDetails.isInjected ? 'Đã Tiêm' : 'Chưa Tiêm'}}                </span>
+              <p>Trạng Thái Tiêm Chủng : 
+                <span [class]=" vaccineRoadDetails.isInjected ? 'bagde badge-success' : 'badge badge-danger'">  {{vaccineRoadDetails.isInjected ? 'Đã Tiêm' : 'Chưa Tiêm'}} </span>
               </p>
             </mat-expansion-panel>
           </mat-accordion>
@@ -46,3 +47,5 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+</div>
+<app-footer></app-footer>
