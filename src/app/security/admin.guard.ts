@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import { TokenStorageService } from '../share/services/TokenStorage.service';
+import { TokenStorageService } from '../share/services/token-storage.service';
 
 
-@Injectable({providedIn: 'root'})
+
+
+@Injectable({ providedIn: 'root' })
 export class AdminGuard implements CanActivate {
 
   constructor(
@@ -24,7 +26,7 @@ export class AdminGuard implements CanActivate {
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate(['/'], {queryParams: {returnUrl: state.url}});
+    this.router.navigate(['/'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 }

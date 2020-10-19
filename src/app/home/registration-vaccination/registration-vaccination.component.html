@@ -168,7 +168,7 @@
     <div class="row justify-content-center mt-3 mb-3" style="font-size: 30px">
       <mat-label>PHIẾU ĐĂNG KÝ TIÊM THEO YÊU CẦU</mat-label>
     </div>
-    <div *ngIf="bookHistory == {}">
+    <div >
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-2" id="info-par-label">
@@ -188,7 +188,7 @@
             <label>Ngày Hẹn :</label>
           </div>
         </div>
-        <div class="col-md-4" id="info-par">
+        <div *ngIf="firstFormGroup.valid && secondFormGroup.invalid" class="col-md-4" id="info-par">
           <p>{{bookHistory.name}}</p>
           <p>{{bookHistory.phoneNumber}}</p>
           <p>{{bookHistory.parentName}}</p>

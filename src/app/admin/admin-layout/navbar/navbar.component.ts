@@ -2,7 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import {TokenStorageService} from '../../../share/services/TokenStorage.service';
+import { TokenStorageService } from 'src/app/share/services/token-storage.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ export class NavbarComponent implements OnInit {
   private sidebarVisible: boolean;
   avt: any;
 
-  constructor(location: Location, private element: ElementRef, private router: Router,private  tokenStorageService:TokenStorageService) {
+  constructor(location: Location, private element: ElementRef, private router: Router, private tokenStorageService: TokenStorageService) {
     this.location = location;
     this.sidebarVisible = false;
   }

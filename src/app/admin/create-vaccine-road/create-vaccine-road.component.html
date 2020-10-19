@@ -1,0 +1,125 @@
+<div class="container">
+<div>
+    Lộ trình tiêm chủng
+</div>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    
+    <mat-step [stepControl]="formGroup">
+      <form [formGroup]="formGroup">
+        <ng-template matStepLabel>Nhập thông tin vắc xin</ng-template>
+        <div class="row justify-content-center mt-3 mb-3" style="font-size: 30px">
+          <mat-label>THÔNG TIN VẮC XIN</mat-label>
+        </div>
+        <div class="offset-sm-3">
+          <div class="row justify-content-between">
+
+            <div class="col-md">
+                
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Tên Vắc-Xin</mat-label>
+                    <mat-select matInput placeholder="Tên Vắc-Xin" [(ngModel)]="vaccine" [ngModelOptions]="{standalone: true}">
+                    <mat-option *ngFor=" let vaccine of vaccineList" [value]="vaccine">
+                        {{vaccine.name}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                        
+                <mat-form-field class=" field-ad row">
+                    <mat-label>Loại Vắc-xin</mat-label>
+                    <input [value]="vaccine?.category" matInput readonly>
+                </mat-form-field>
+                
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Nước sản xuất</mat-label>
+                    <input [value]="vaccine?.country" matInput readonly>
+                </mat-form-field>
+
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Điều kiện bảo quản</mat-label>
+                    <input [value]="vaccine?.conditions" matInput readonly>
+                </mat-form-field>
+                
+            </div>
+            <div class="col-md">
+
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Hàm lượng</mat-label>
+                    <input [value]="vaccine?.content" matInput readonly>
+                </mat-form-field>
+
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Số đợt tiêm</mat-label>
+                    <input [value]="vaccine?.injectionTimes" matInput readonly>
+                </mat-form-field>
+
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Khoảng cách đợt (Tháng)</mat-label>
+                    <input [value]="vaccine?.rangeTime" matInput readonly>
+                </mat-form-field>
+              
+                <mat-form-field class=" field-ad row ">
+                    <mat-label>Ngày bắt đầu lộ trình</mat-label>
+                    <input matInput [matDatepicker]="dp4" placeholder="dd/mm/yyyy" 
+                            [min]="minDate" required readonly formControlName="startTime" >
+                    <mat-datepicker-toggle matSuffix [for]="dp4"></mat-datepicker-toggle>
+                    <mat-datepicker #dp4 disabled="false"></mat-datepicker>
+                </mat-form-field>
+
+                <div class="field-ad row">
+                    <button class="float-right mt-3 " [disabled]="formGroup.invalid" mat-button matStepperNext>Tiếp Tục
+                    </button>
+                </div>
+
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Hoàn Thành</ng-template>
+      <div class="row justify-content-center mt-3 mb-3" style="font-size: 30px">
+        <mat-label>LỘ TRÌNH TIÊM VẮC XIN</mat-label>
+      </div>
+      <div >
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-2 "  id="info-par-label">
+            <div>
+              <label class="text-dark fontsize"><strong>Họ tên bệnh nhân :</strong></label>
+            </div>
+            <div>
+              <label class="text-dark fontsize"><strong>Người giám hộ :</strong></label>
+            </div>
+            <div>
+              <label class="text-dark fontsize"><strong>Số điện thoại :</strong></label>
+            </div>
+            <div>
+              <label class="text-dark fontsize"><strong>Tên Vắc-Xin :</strong></label>
+            </div>
+            <div>
+              <label class="text-dark fontsize"><strong>Ngày Hẹn :</strong></label>
+            </div>
+          </div>
+          <div *ngIf=" vaccine != null && patient != null && formGroup.value.startTime != '' " class="col-md-4" id="info-par">
+            <p>{{patient.fullName}}</p>
+            <p>{{patient.parentName}}</p>
+            <p>{{patient.phoneNumber}}</p>
+            <p>{{vaccine.name}}</p>
+            <p>{{formGroup.value.startTime | date }}</p>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+  
+  
+      </div>
+  
+  
+      <div>
+        <button mat-button matStepperPrevious>Quay Lại</button>
+        <button mat-button [disabled]="vaccine == null">Đăng ký
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

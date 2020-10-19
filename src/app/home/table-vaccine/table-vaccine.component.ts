@@ -3,6 +3,8 @@ import { NavigationExtras, Router } from '@angular/router';
 import { Vaccine } from 'src/app/share/models/vaccine';
 import { VaccineService } from 'src/app/share/services/vaccine.service';
 
+declare var $ : any;
+
 @Component({
   selector: 'app-table-vaccine',
   templateUrl: './table-vaccine.component.html',
@@ -22,6 +24,12 @@ export class TableVaccineComponent implements OnInit {
 
   ngOnInit() {
     this.getPage(1);
+    $(document).ready(function() {   
+      // Goes to the bottom onLoad
+      $(document).scrollTop($(document).height());    
+      // This animates you back to the top    
+      $('body, html').animate({scrollTop:0}, 'slow');    
+  });
   }
 
   getPage(page : number) {

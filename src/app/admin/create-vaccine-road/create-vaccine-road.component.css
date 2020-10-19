@@ -1,0 +1,17 @@
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 200px !important;
+  }
+
+  div #info-par p {
+    margin-bottom: 7px;
+   }
+
+   .fontsize {
+       font-size: 1rem !important;
+   }

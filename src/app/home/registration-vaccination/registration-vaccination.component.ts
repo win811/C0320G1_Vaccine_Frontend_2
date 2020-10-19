@@ -11,8 +11,9 @@ import { Patient } from 'src/app/share/models/patient';
 import { Vaccine } from 'src/app/share/models/vaccine';
 import { VaccineService } from 'src/app/share/services/vaccine.service';
 import { NotifiByDucService } from 'src/app/share/services/notifi-by-duc.service';
-import { TokenStorageService } from 'src/app/share/services/TokenStorage.service';
+
 import { BookHistory } from 'src/app/share/models/bookHistory';
+import { TokenStorageService } from 'src/app/share/services/token-storage.service';
 
 export interface DTO {
   name: string;
@@ -124,8 +125,6 @@ export class RegistrationVaccinationComponent implements OnInit {
       console.log(error);
     });
   }
-
-
 
   registration() {
     this.statusLoading = true;

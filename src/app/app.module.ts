@@ -3,7 +3,6 @@ import { MaterialModule } from './material.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,9 +10,10 @@ import { BodyComponent } from './home/body/body.component';
 import { CommonModuleModule } from './common-module/common-module.module';
 import { TableVaccineComponent } from './home/table-vaccine/table-vaccine.component';
 import { VaccineDetailComponent } from './home/vaccine-detail/vaccine-detail.component';
+import { LoginComponent } from './home/login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationsComponent } from './home/notifications/notifications.component';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -24,12 +24,16 @@ import { ToastrModule } from 'ngx-toastr';
     TableVaccineComponent,
     VaccineDetailComponent,
     RegistrationVaccinationComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CommonModuleModule,
+    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     CommonModuleModule,
     NgxPaginationModule,
@@ -37,8 +41,12 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot()
+
   ],
-  providers: [],
+  providers: [], 
+  entryComponents: [
+    LoginComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
