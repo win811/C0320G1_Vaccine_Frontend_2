@@ -17,3 +17,11 @@
   margin-left: 8px;
 }
 
+.example-card {
+  max-width: 660px;
+}
+
+.example-header-image {
+  background-image: url('https://png.pngtree.com/png-clipart/20191122/original/pngtree-beautiful-patient-vector-glyph-icon-png-image_5187213.jpg');
+  background-size: cover;
+}
