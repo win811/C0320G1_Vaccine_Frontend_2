@@ -1,5 +1,5 @@
 <mat-accordion *ngFor="let patient of patients">
-  <mat-expansion-panel hideToggle>
+  <mat-expansion-panel >
     <mat-expansion-panel-header>
       <mat-panel-title>
         <mat-icon>account_circle</mat-icon>
@@ -11,23 +11,21 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-accordion *ngFor="let vaccineRoad of patient.vaccineRoadList">
-      <mat-expansion-panel hideToggle>
+      <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
-       <span class="material-icons">
-add_circle
-</span>
+       <span class="material-icons">add_circle</span>
             Tên Vắc-xin: {{vaccineRoad.vaccine.name}}
           </mat-panel-title>
           <mat-panel-description>
-            Loại Vắc-xin:
-            {{vaccineRoad.vaccine.category}}
+            Loại Vắc-xin:{{vaccineRoad.vaccine.category}}
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-accordion *ngFor="let vaccineRoadDetails of vaccineRoad.vaccineRoadDetailsList">
-          <mat-expansion-panel hideToggle>
+          <mat-expansion-panel >
             <mat-expansion-panel-header>
               <mat-panel-title>
+                <mat-icon>forward</mat-icon>
                 {{"Đợt Tiêm : " + vaccineRoadDetails.injectionTimes}}
               </mat-panel-title>
               <mat-panel-description>
@@ -35,7 +33,8 @@ add_circle
               </mat-panel-description>
             </mat-expansion-panel-header>
             <h6>Thông Tin Tiêm Chủng Chi Tiết</h6>
-            <p>Trạng Thái Tiêm Chủng : <span class="badge badge-danger">  {{vaccineRoadDetails.isInjected ? 'Đã Tiêm' : 'Chưa Tiêm'}}                </span>
+            <p>Trạng Thái Tiêm Chủng : <span
+              class="badge badge-danger">  {{vaccineRoadDetails.isInjected ? 'Đã Tiêm' : 'Chưa Tiêm'}}                </span>
             </p>
           </mat-expansion-panel>
         </mat-accordion>
