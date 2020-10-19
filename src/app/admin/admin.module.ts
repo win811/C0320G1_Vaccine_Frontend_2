@@ -8,8 +8,10 @@ import { SidebarComponent } from './admin-layout/sidebar/sidebar.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateVaccineRoadComponent } from './create-vaccine-road/create-vaccine-road.component';
-
-
+import { VaccineRoadComponent} from './vaccine-road/vaccine-road.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { PatientCreateComponent } from './patient-create/patient-create.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,20 @@ import { CreateVaccineRoadComponent } from './create-vaccine-road/create-vaccine
     NavbarComponent,
     SidebarComponent,
     CreateVaccineRoadComponent,
-
+    PatientListComponent,
+    VaccineRoadComponent,
+    PatientCreateComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxPaginationModule
+  ],
+  entryComponents:[
+    PatientCreateComponent
   ]
 })
 export class AdminModule { }

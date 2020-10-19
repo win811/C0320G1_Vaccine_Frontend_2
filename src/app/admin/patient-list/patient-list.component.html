@@ -1,0 +1,96 @@
+<div class="container mt-3 bg-white">
+  <div class="row">
+    <div class="col text-info d-flex justify-content-center">
+      <h2>Danh sách khách hàng (bệnh nhân)</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mt-3">
+      <form [formGroup]="formSearchPatient">
+        <div class="row">
+          <div class="col-md">
+            <label>Họ và tên</label>
+            <input type="text" class="form-control" placeholder="vd: Nguyễn Văn A" formControlName="fullName">
+            <p
+              *ngIf="formSearchPatient.controls.fullName.errors?.pattern && formSearchPatient.controls.fullName.touched"
+              class="text-danger font-weight-bold"><b><i>
+              Tên bệnh nhân không được chứa kí tự đặc biệt hoặc số !</i></b></p>
+          </div>
+          <div class="col-md">
+            <label>Người giám hộ</label>
+            <input type="text" class="form-control" placeholder="vd: Nguyễn Văn B" formControlName="parentName">
+            <p
+              *ngIf="formSearchPatient.controls.parentName.errors?.pattern && formSearchPatient.controls.parentName.touched"
+              class="text-danger font-weight-bold"><b><i>
+              Người giám hộ không được chứa kí tự đặc biệt hoặc số !</i></b></p>
+          </div>
+          <div class="col-md">
+            <label>CMND</label>
+            <input type="text" class="form-control" placeholder="vd: 197231234" formControlName="parentIdCard">
+            <p
+              *ngIf="formSearchPatient.controls.parentIdCard.errors?.pattern && formSearchPatient.controls.parentIdCard.touched"
+              class="text-danger font-weight-bold"><b><i>
+              CMND chỉ chứa kí tự số !</i></b></p>
+          </div>
+          <div class="col-md">
+            <label>&nbsp;</label><br>
+            <button (click)="search()" type="button" class="btn btn-info"><i
+              class="fas fa-search"></i> Lọc kết quả
+            </button>
+            <p class="text-danger"><b><i>{{message}}</i></b></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col-md">
+                <button (click)="openCreate()" class="btn btn-success"><i class="fas fa-plus-square"></i>  Tạo mới bệnh nhân</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <table class="table table-striped mt-2 text-center">
+        <thead class="bg-info text-white">
+        <tr>
+          <th scope="col">Họ và tên</th>
+          <th scope="col">Ngày sinh</th>
+          <th scope="col">Người giám hộ</th>
+          <th scope="col">CMND</th>
+          <th scope="col">Số liệu trình đã sử dụng</th>
+          <th scope="col">Lộ trình</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let patient of patients | async | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalElements}">
+          <td>{{patient.fullName}}</td>
+          <td>{{patient.birthDay | date:'dd-MM-yyyy'}}</td>
+          <td>{{patient.parentName}}</td>
+          <td>{{patient.parentIdCard}}</td>
+          <td>{{patient.vaccineRoadList.length}}</td>
+          <td>
+            <button type="button"  [routerLink]="['/admin/roaddetail',patient.id]" class="btn btn-warning">Xem lộ trình</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mt-2">
+      <div class="d-flex justify-content-end">
+        <div class=" d-flex justify-content-end">
+          <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

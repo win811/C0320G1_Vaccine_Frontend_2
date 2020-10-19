@@ -29,7 +29,7 @@ export class TableVaccineComponent implements OnInit {
       $(document).scrollTop($(document).height());    
       // This animates you back to the top    
       $('body, html').animate({scrollTop:0}, 'slow');    
-  });
+    });
   }
 
   getPage(page : number) {

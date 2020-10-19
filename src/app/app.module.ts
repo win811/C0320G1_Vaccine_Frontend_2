@@ -35,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    HttpClientModule,
     CommonModuleModule,
     NgxPaginationModule,
     MaterialModule,

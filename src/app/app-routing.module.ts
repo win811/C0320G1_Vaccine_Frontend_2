@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: "vaccine-detail/:id", component: VaccineDetailComponent }, 
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule) },
   { path: 'register', component : RegistrationVaccinationComponent},
-  { path: 'noti', component : NotificationsComponent}
+  { path: 'noti', component : NotificationsComponent},
+  { path: 'user', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule) }
 ];
 
 @NgModule({

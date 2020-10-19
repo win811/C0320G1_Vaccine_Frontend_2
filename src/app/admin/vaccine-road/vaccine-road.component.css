@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+th {
+  font-size: 14px;
+
+}
+button {
+  outline: 0;
+}
+.mat-expansion-panel {
+  background: #fff;
+  color: rgba(0,0,0,.87);
+}
