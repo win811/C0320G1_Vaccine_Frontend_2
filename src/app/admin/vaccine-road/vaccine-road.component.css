@@ -16,3 +16,7 @@ th {
 button {
   outline: 0;
 }
+.mat-expansion-panel {
+  background: #fff;
+  color: rgba(0,0,0,.87);
+}
