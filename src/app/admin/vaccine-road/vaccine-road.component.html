@@ -1,21 +1,26 @@
+<button (click)="openDialog()" mat-raised-button style="margin-left: 20px; background-color: #63C76A; color: white;" >
+ <mat-icon>add</mat-icon> Tạo mới lộ trình 
+</button>
 <div style="background-color: white">
   <div class="row mt-3">
     <div class="col-md-3"></div>
-    <div class="col-md-6">  <h3> Lịch Trình Tiêm Chủng Chi Tiết Bệnh Nhân</h3>
+    <div class="col-md-6">  <h3> Lịch Trình Tiêm Chủng Chi Tiết Của Bệnh Nhân</h3>
     </div>
     <div class="col-md-3"></div>
   </div>
-  <div class="row" >
+  <div class="row mt-2" >
     <div class="col-md-4"></div>
     <div class="col-md-2">
       <p>Tên Bệnh Nhân : </p>
       <p>Ngày sinh : </p>
+      <p>Người giám hộ : </p>
       <p>Email : </p>
       <p>Địa chỉ : </p>
     </div>
     <div class="col-md-6">
       <p>{{patient.fullName}}</p>
       <p>{{patient.birthDay}}</p>
+      <p>{{patient.parentName}}</p>
       <p>{{patient.email}}</p>
       <p>{{patient.address}}</p>
     </div>
@@ -24,6 +29,7 @@
     <mat-expansion-panel expanded>
       <mat-expansion-panel-header >
         <mat-panel-title>
+          <span class="material-icons" style="color: orangered">add_circle</span>
           {{"Tên Vắc Xin : " + vaccineRoad.vaccine.name}}
         </mat-panel-title>
         <mat-panel-description>
@@ -78,15 +84,20 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Xác Nhận Hoàn Thành</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Xác Nhận Thay Đổi Trạng Thái</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
+                    <div class="alert alert-warning" role="alert">
+                      <span>
+                        Xác nhận thay đổi trạng thái tiêm chủng thành "Hoàn Thành" ?
+                      </span>
+                    </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                     <button type="button" class="btn btn-success" (click)="changeStatus(element.id)" data-dismiss="modal">
                       Xác Nhận
                     </button>

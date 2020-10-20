@@ -112,12 +112,15 @@ export class AppComponent {
     if (bot_ear.search('chào') != -1) {
       return 'Chào bạn, mình là A I , mình có thể giúp gì cho bạn ?';
       // tslint:disable-next-line:triple-equals
-    } else if (bot_ear.search('vắc xin') != -1) {
+    } else if (bot_ear.search('trang chủ') != -1) {
+      this.actionNext = '/';
+      return 'Đã quay về trang chủ';
+    } else if (bot_ear.search('vắc xin') != -1 || bot_ear.search('danh sách') != -1 ) {
       this.actionNext = '/table-vaccine';
       return 'Bên mình có đủ các loại vắc xin tốt nhất trên thị trường, cả nội địa và ngoại địa, mình mở danh sách cho bạn xem nhé ?';
       // tslint:disable-next-line:triple-equals
     } else if (bot_ear.search('cảm ơn') != -1 || bot_ear.search('Cảm ơn') != -1) {
-      return 'Vâng ạ, Chúc bạn một ngày làm việc vui vẻ, cảm ơn bạn đã quan tâm đến Trung tâm tiêm chủng GPS ?';
+      return 'Vâng ạ, Chúc bạn một ngày làm việc vui vẻ, cảm ơn bạn đã quan tâm đến Trung tâm tiêm chủng GPS ';
       // tslint:disable-next-line:triple-equals
     } else if (bot_ear.search('đăng ký') != -1) {
       this.actionNext = '/register';
@@ -128,7 +131,7 @@ export class AppComponent {
       // tslint:disable-next-line:triple-equals
     } else if (bot_ear.search('Tư vấn') != -1 || bot_ear.search('tư vấn') != -1) {
       this.actionNext = '/table-vaccine';
-      return 'mời bạn xem các thông tin về các gói tiêm chủng mới nhất bên mình ';
+      return 'Mời bạn xem các thông tin về các gói tiêm chủng mới nhất bên mình ';
     } else {
       return 'Xin lỗi, mình không hiểu câu hỏi của bạn ';
     }

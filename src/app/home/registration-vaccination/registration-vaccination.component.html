@@ -158,7 +158,7 @@
       </div>
       <div>
         <button mat-button matStepperPrevious>Quay Lại</button>
-        <button mat-button matStepperNext [disabled]="secondFormGroup.invalid">Tiếp Theo
+        <button mat-button matStepperNext (click)="setInjection()" [disabled]="secondFormGroup.invalid || firstFormGroup.invalid">Tiếp Theo
         </button>
       </div>
     </form>
@@ -188,7 +188,7 @@
             <label>Ngày Hẹn :</label>
           </div>
         </div>
-        <div *ngIf="firstFormGroup.valid && secondFormGroup.invalid" class="col-md-4" id="info-par">
+        <div *ngIf="firstFormGroup.valid && secondFormGroup.valid && bookHistory.vaccine" class="col-md-4" id="info-par">
           <p>{{bookHistory.name}}</p>
           <p>{{bookHistory.phoneNumber}}</p>
           <p>{{bookHistory.parentName}}</p>

@@ -1,3 +1,4 @@
+import { NotificationService } from 'src/app/share/services/notification.service';
 import { BookHistoryService } from './../../share/services/bookHistory.service';
 import { Account } from './../../share/models/account';
 
@@ -69,6 +70,7 @@ export class RegistrationVaccinationComponent implements OnInit {
     private bookHistoryService: BookHistoryService,
     private vaccineService: VaccineService,
     private noti: NotifiByDucService,
+    private toastrService : NotificationService,
     private tokenStorageService: TokenStorageService
   ) {
     const navigation = this.router.getCurrentNavigation();
@@ -81,10 +83,10 @@ export class RegistrationVaccinationComponent implements OnInit {
     const currentYear = new Date().getFullYear();
     const currentDay = new Date().getDate();
     const currentMonth = new Date().getMonth();
-    this.maxDate = new Date(currentYear,currentMonth-1, currentDay);
+    this.maxDate = new Date(currentYear,currentMonth, currentDay);
     this.minDate = new Date(currentYear-100,currentMonth, currentDay);
     this.maxDateRegistration = new Date(currentYear,currentMonth+2, currentDay);
-    this.minDateRegistration = new Date(currentYear,currentMonth+1, currentDay);
+    this.minDateRegistration = new Date(currentYear,currentMonth, currentDay);
     this.firstFormGroup = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]*$/)]],
       birthDay: ['', Validators.required],
@@ -126,9 +128,7 @@ export class RegistrationVaccinationComponent implements OnInit {
     });
   }
 
-  registration() {
-    this.statusLoading = true;
-    
+  setInjection() {
     this.bookHistory.name = this.firstFormGroup.value.name;
     this.bookHistory.birthDay = this.firstFormGroup.value.birthDay;
     this.bookHistory.gender = this.firstFormGroup.value.gender;
@@ -139,24 +139,34 @@ export class RegistrationVaccinationComponent implements OnInit {
     this.bookHistory.email = this.firstFormGroup.value.email;
     this.bookHistory.vaccine = this.vacxin;
     this.bookHistory.injectionDate = this.secondFormGroup.value.injectionDate;
+  }
+
+  registration() {
+    this.statusLoading = true;
+    
+    
     console.log(this.bookHistory);
 
     this.bookHistoryService.registerBookHistory(this.bookHistory).subscribe(data => {
-      this.noti.showNotification('success', 'Thông Báo', data.message);
+      // this.noti.showNotification('success', 'Thông Báo', data.message);
+      this.toastrService.showSuccess(data.message,'Thông báo');
       this.statusLoading = false;
       this.router.navigate(['']);
-    }, error1 => {
+    }, error => {
       this.statusLoading = false;
-      this.noti.showNotification('danger', 'Thông Báo', error1.error.message);
+      // this.noti.showNotification('danger', 'Thông Báo', error1.error.message);
+      this.toastrService.showError(error.error.message,"Thông báo");
     });
   }
 
   sendVerifyToken() {
     const email = this.firstFormGroup.value.email;
     this.bookHistoryService.sendVerifyToken(email).subscribe(data => {
-      this.noti.showNotification('success', 'Thông Báo', data.message);
+      // this.noti.showNotification('success', 'Thông Báo', data.message);
+      this.toastrService.showSuccess(data.message,"Thông báo");
     }, error => {
-      this.noti.showNotification('danger', 'Thông Báo', error.error.message);
+      // this.noti.showNotification('danger', 'Thông Báo', error.error.message);
+      this.toastrService.showError(error.error.message,"Thông báo");
     });
   }
 
@@ -165,10 +175,12 @@ export class RegistrationVaccinationComponent implements OnInit {
     const email = this.firstFormGroup.value.email;
     const code = this.firstFormGroup.value.code;
     this.bookHistoryService.verifyCode(email,code).subscribe(data => {
-      this.noti.showNotification('success', 'Thông Báo', data.message);
+      // this.noti.showNotification('success', 'Thông Báo', data.message);
+      this.toastrService.showSuccess(data.message,"Thông báo");
       this.verify = 'verify';
     }, error => {
-      this.noti.showNotification('danger', 'Thông Báo', error.error.message);
+      // this.noti.showNotification('danger', 'Thông Báo', error.error.message);
+      this.toastrService.showError(error.error.message,'Thông báo');
     });
     this.statusLoading = false;
   }

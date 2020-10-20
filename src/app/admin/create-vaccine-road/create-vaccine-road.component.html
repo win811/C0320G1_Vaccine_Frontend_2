@@ -1,7 +1,4 @@
-<div class="container">
-<div>
-    Lộ trình tiêm chủng
-</div>
+<div class="">
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
     
     <mat-step [stepControl]="formGroup">
@@ -84,9 +81,9 @@
       <div >
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="col-md-2 "  id="info-par-label">
+          <div class="col-md-2" id="info-par-label">
             <div>
-              <label class="text-dark fontsize"><strong>Họ tên bệnh nhân :</strong></label>
+              <label class="text-dark fontsize"><strong>Họ tên :</strong></label>
             </div>
             <div>
               <label class="text-dark fontsize"><strong>Người giám hộ :</strong></label>
@@ -98,17 +95,17 @@
               <label class="text-dark fontsize"><strong>Tên Vắc-Xin :</strong></label>
             </div>
             <div>
-              <label class="text-dark fontsize"><strong>Ngày Hẹn :</strong></label>
+              <label class="text-dark fontsize"><strong>Ngày bắt đầu :</strong></label>
             </div>
           </div>
-          <div *ngIf=" vaccine != null && patient != null && formGroup.value.startTime != '' " class="col-md-4" id="info-par">
+          <div *ngIf=" vaccine != null && patient != null && formGroup.value.startTime != '' " class="col-md-3" id="info-par">
             <p>{{patient.fullName}}</p>
             <p>{{patient.parentName}}</p>
             <p>{{patient.phoneNumber}}</p>
             <p>{{vaccine.name}}</p>
             <p>{{formGroup.value.startTime | date }}</p>
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-3"></div>
         </div>
   
   
@@ -117,7 +114,7 @@
   
       <div>
         <button mat-button matStepperPrevious>Quay Lại</button>
-        <button mat-button [disabled]="vaccine == null">Đăng ký
+        <button mat-button (click)="createVaccineRoad()" [disabled]="vaccine == null">Đăng ký
         </button>
       </div>
     </mat-step>

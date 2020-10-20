@@ -1,3 +1,4 @@
+
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../share/services/patient.service';
@@ -5,6 +6,7 @@ import {Patient} from '../../share/models/patient';
 import {VaccineRoadService} from '../../share/services/vaccine-road.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {Subscription} from 'rxjs';
+import { CreateVaccineRoadComponent } from '../create-vaccine-road/create-vaccine-road.component';
 
 
 @Component({
@@ -22,7 +24,8 @@ export class VaccineRoadComponent implements OnInit {
     public dialog: MatDialog,
     private router: ActivatedRoute,
     private patientService: PatientService,
-    private vaccineRoadService: VaccineRoadService) {
+    private vaccineRoadService: VaccineRoadService
+    ) {
   }
 
   ngOnInit() {
@@ -48,7 +51,18 @@ export class VaccineRoadComponent implements OnInit {
     // this.getPatient(this.idPatient);
   }
 
-  openDialog() {
-
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateVaccineRoadComponent, {
+      width: "1000px",
+      height: "500px",
+      data : {
+        patient : this.patient
+      },
+      autoFocus: true,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
+  
   }
 }

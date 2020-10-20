@@ -18,7 +18,11 @@ export class NavbarComponent implements OnInit {
   private sidebarVisible: boolean;
   avt: any;
 
-  constructor(location: Location, private element: ElementRef, private router: Router, private tokenStorageService: TokenStorageService) {
+  constructor(
+    location: Location, 
+    private element: ElementRef, 
+    private router: Router,
+    private tokenStorageService: TokenStorageService) {
     this.location = location;
     this.sidebarVisible = false;
   }
